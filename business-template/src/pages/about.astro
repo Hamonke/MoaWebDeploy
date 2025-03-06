@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { businessConfig } from "../config/branding";
+import { aboutContent } from "../config/content";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Card from "../components/Card.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout title="About Us">
+	<!-- Hero Section -->
+	<Section background="primary" paddingY="lg">
+		<Container>
+			<div class="text-center">
+				<h1
+					class="text-4xl font-bold tracking-tight sm:text-5xl mb-6 text-cream"
+				>
+					{aboutContent.hero.title}
+				</h1>
+				<p class="text-xl mb-8 text-cream/90 max-w-3xl mx-auto">
+					{aboutContent.hero.subtitle}
+				</p>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Story Section -->
+	<Section background="cream" paddingY="lg">
+		<Container>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<h2
+						class="text-3xl font-bold tracking-tight sm:text-4xl mb-6 text-primary"
+					>
+						{aboutContent.story.title}
+					</h2>
+					<p class="text-primary/80">
+						{aboutContent.story.content}
+					</p>
+				</div>
+				<div class="hidden lg:block">
+					<img
+						src={aboutContent.story.image}
+						alt="Our story"
+						class="rounded-lg shadow-lg w-full max-w-full"
+					/>
+				</div>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Mission Section -->
+	<Section background="primary-light" paddingY="md">
+		<Container size="md">
+			<div class="text-center">
+				<h2
+					class="text-3xl font-bold tracking-tight sm:text-4xl mb-6 text-cream"
+				>
+					{aboutContent.mission.title}
+				</h2>
+				<p class="text-xl text-cream/90">
+					{aboutContent.mission.content}
+				</p>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Values Section -->
+	<Section background="cream" paddingY="lg">
+		<Container>
+			<SectionHeading
+				title={aboutContent.values.title}
+				subtitle="The principles that guide everything we do"
+				class="text-primary"
+			/>
+
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+			>
+				{
+					aboutContent.values.items.map((value) => (
+						<Card
+							shadow="sm"
+							class="text-center bg-white border border-primary-light/20"
+						>
+							<h3 class="text-xl font-semibold mb-2 text-primary">
+								{value.title}
+							</h3>
+							<p class="text-primary/80">{value.description}</p>
+						</Card>
+					))
+				}
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Team Section -->
+	<Section background="secondary" paddingY="lg">
+		<Container>
+			<SectionHeading
+				title={aboutContent.team.title}
+				subtitle={aboutContent.team.subtitle}
+				class="text-cream"
+			/>
+
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+			>
+				{
+					aboutContent.team.members.map((member) => (
+						<Card shadow="md" class="text-center bg-white">
+							<img
+								src={member.image}
+								alt={member.name}
+								class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+							/>
+							<h3 class="text-xl font-semibold mb-1 text-primary">
+								{member.name}
+							</h3>
+							<p class="text-secondary-dark mb-3">
+								{member.role}
+							</p>
+							<p class="text-primary/80 text-sm">{member.bio}</p>
+						</Card>
+					))
+				}
+			</div>
+		</Container>
+	</Section>
+
+	<!-- CTA Section -->
+	<Section background="primary" paddingY="lg">
+		<Container size="md">
+			<div class="text-center">
+				<h2
+					class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-cream"
+				>
+					Ready to Work With Us?
+				</h2>
+				<p class="text-xl mb-8 text-cream/90">
+					Contact us today to learn how we can help your business
+					grow.
+				</p>
+				<Button
+					href="/contact"
+					variant="primary"
+					class="bg-secondary hover:bg-secondary-dark text-cream transition-colors"
+					size="lg"
+				>
+					Contact Us
+				</Button>
+			</div>
+		</Container>
+	</Section>
+</Layout>

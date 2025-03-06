@@ -1,0 +1,114 @@
+---
+interface Props {
+  href?: string;
+  variant?: "primary" | "secondary" | "outline" | "accent" | "text";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  fullWidth?: boolean;
+  class?: string;
+  type?: "button" | "submit" | "reset";
+  icon?: boolean;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  href,
+  variant = "primary",
+  size = "md",
+  fullWidth = false,
+  class: className = "",
+  type = "button",
+  icon = false,
+  target,
+  rel,
+} = Astro.props;
+
+// Focus ring styles based on variant
+const baseClasses =
+  "inline-flex items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 ease-in-out";
+
+// Get size classes
+let sizeClasses = "";
+switch (size) {
+  case "xs":
+    sizeClasses = icon ? " p-1.5 text-sm" : " px-2.5 py-1.5 text-xs";
+    break;
+  case "sm":
+    sizeClasses = icon ? " p-2 text-sm" : " px-3 py-2 text-sm";
+    break;
+  case "md":
+    sizeClasses = icon ? " p-2.5 text-base" : " px-4 py-2 text-base";
+    break;
+  case "lg":
+    sizeClasses = icon ? " p-3 text-lg" : " px-6 py-3 text-base";
+    break;
+  case "xl":
+    sizeClasses = icon ? " p-4 text-xl" : " px-8 py-4 text-lg";
+    break;
+  default:
+    sizeClasses = icon ? " p-2.5 text-base" : " px-4 py-2 text-base";
+}
+
+// Get variant-specific classes
+let variantClasses = "";
+switch (variant) {
+  case "primary":
+    variantClasses =
+      " shadow-sm text-background bg-primary hover:bg-secondary focus:ring-primary border border-transparent";
+    break;
+  case "secondary":
+    variantClasses =
+      " shadow-sm text-primary bg-secondary hover:bg-accent focus:ring-secondary border border-transparent";
+    break;
+  case "outline":
+    variantClasses =
+      " shadow-sm text-primary bg-background border border-primary hover:bg-secondary hover:text-background hover:border-secondary focus:ring-primary";
+    break;
+  case "accent":
+    variantClasses =
+      " shadow-sm text-background bg-accent hover:bg-accent-dark focus:ring-accent border border-transparent";
+    break;
+  default:
+    variantClasses =
+      " text-primary hover:text-secondary hover:bg-background focus:ring-primary border border-transparent";
+}
+
+// Base classes
+let classes = baseClasses;
+
+// Add rounded corners unless it's an icon button
+if (!icon) {
+  classes += " rounded-md";
+} else {
+  classes += " rounded-full";
+}
+
+// Size classes
+classes += sizeClasses;
+
+// Width class
+if (fullWidth) {
+  classes += " w-full";
+}
+
+// Additional classes
+classes += ` ${className}`;
+
+// Additional attributes for links
+const attrs = {
+  ...(target && { target }),
+  ...(rel && { rel }),
+};
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...attrs}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes}>
+      <slot />
+    </button>
+  )
+}

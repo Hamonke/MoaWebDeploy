@@ -1,0 +1,143 @@
+---
+import { businessConfig } from "../config/branding";
+
+interface NavItem {
+  name: string;
+  href: string;
+}
+
+const navItems: NavItem[] = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<header class="bg-accent-dark">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
+    <div
+      class="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none"
+    >
+      <div class="flex items-center">
+        <a href="/" class="flex-shrink-0 mr-8 flex items-center">
+          <div class="mr-1">
+            <div class="text-black text-4xl font-black leading-tight">
+              Moa Web
+            </div>
+            <div class="text-black text-xs font-mono">
+              Giants in Web Development
+            </div>
+          </div>
+          <span class="sr-only">{businessConfig.name}</span>
+          {
+            businessConfig.logo ? (
+              <img
+                class="h-16 w-auto object-contain"
+                src={businessConfig.logo}
+                alt={businessConfig.name}
+              />
+            ) : (
+              <span class="text-xl font-bold text-primary">
+                {businessConfig.name}
+              </span>
+            )
+          }
+        </a>
+        <div class="hidden ml-10 space-x-8 lg:block">
+          {
+            navItems.map((item) => (
+              <a
+                href={item.href}
+                class="text-base font-medium text-background hover:text-accent"
+              >
+                {item.name}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="ml-10 space-x-4">
+        <a
+          href="/contact"
+          class="inline-block bg-secondary py-2 px-4 border border-transparent rounded-md text-base font-medium text-background hover:bg-primary"
+        >
+          Free Consultation
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden flex items-center">
+        <button
+          type="button"
+          class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-background focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <!-- Icon when menu is closed -->
+          <svg
+            class="block h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <!-- Icon when menu is open -->
+          <svg
+            class="hidden h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state -->
+    <div class="mobile-menu hidden lg:hidden">
+      <div class="pt-2 pb-3 space-y-1">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-background hover:border-primary hover:text-primary"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const button = document.querySelector(".mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+    const iconOpen = button?.querySelector("svg:first-child");
+    const iconClosed = button?.querySelector("svg:last-child");
+
+    button?.addEventListener("click", () => {
+      menu?.classList.toggle("hidden");
+      iconOpen?.classList.toggle("hidden");
+      iconClosed?.classList.toggle("hidden");
+    });
+  });
+</script>

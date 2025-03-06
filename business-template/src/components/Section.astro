@@ -1,0 +1,44 @@
+---
+interface Props {
+  id?: string;
+  background?:
+    | "white"
+    | "cream"
+    | "primary"
+    | "primary-light"
+    | "secondary"
+    | "secondary-dark";
+  paddingY?: "sm" | "md" | "lg" | "none";
+  class?: string;
+}
+
+const {
+  id,
+  background = "white",
+  paddingY = "md",
+  class: className = "",
+} = Astro.props;
+
+let bgClass = "";
+if (background === "white") bgClass = "bg-white";
+if (background === "cream") bgClass = "bg-cream";
+if (background === "primary") bgClass = "bg-primary text-cream";
+if (background === "primary-light") bgClass = "bg-primary-light text-cream";
+if (background === "secondary") bgClass = "bg-secondary text-cream";
+if (background === "secondary-dark") bgClass = "bg-secondary-dark text-cream";
+
+let paddingClass = "";
+if (paddingY === "sm") paddingClass = "py-6";
+if (paddingY === "md") paddingClass = "py-12";
+if (paddingY === "lg") paddingClass = "py-16 md:py-24";
+if (paddingY === "none") paddingClass = "";
+
+const classes = `${bgClass} ${paddingClass} ${className}`;
+---
+
+<section id={id} class={classes}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <slot />
+  </div>
+</section>
+

@@ -1,0 +1,531 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { businessConfig } from "../config/branding";
+import { homeContent } from "../config/content";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Card from "../components/Card.astro";
+import Button from "../components/Button.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Home">
+	<!-- Hero Section -->
+	<Section background="primary" paddingY="lg">
+		<Container>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<h1
+						class="text-4xl font-bold tracking-tight sm:text-5xl mb-6 text-accent-dark"
+					>
+						{homeContent.hero.title}
+					</h1>
+					<p class="text-xl mb-8 text-accent">
+						{homeContent.hero.subtitle}
+					</p>
+					<div class="flex flex-wrap gap-4">
+						<Button
+							href={homeContent.hero.cta.primary.link}
+							variant="secondary"
+							size="lg"
+						>
+							<span class="text-background"
+								>{homeContent.hero.cta.primary.text}</span
+							>
+						</Button>
+						<Button
+							href={homeContent.hero.cta.secondary.link}
+							variant="outline"
+							size="lg"
+						>
+							{homeContent.hero.cta.secondary.text}
+						</Button>
+					</div>
+				</div>
+				<div class="hidden lg:block">
+					<img
+						src={homeContent.hero.image}
+						alt="Hero image"
+						class="rounded-lg shadow-xl w-full max-w-full"
+					/>
+				</div>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Services Overview Section -->
+	<Section background="cream" paddingY="lg">
+		<Container>
+			<SectionHeading
+				title="Web Solutions for Your Business"
+				subtitle="Professional web development services tailored for small businesses"
+			/>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+				<Card
+					shadow="md"
+					class="text-center border-primary border-2 relative"
+				>
+					<div
+						class="bg-primary text-background text-xs font-bold py-1.5 px-3 rounded-md absolute top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/3 z-10"
+					>
+						MOST POPULAR
+					</div>
+					<div class="flex justify-center mb-4 pt-2.5">
+						<div class="bg-secondary/20 p-4 rounded-full">
+							<svg
+								class="h-8 w-8 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+								></path>
+							</svg>
+						</div>
+					</div>
+					<h3 class="text-xl font-semibold mb-2 text-primary">
+						Business Website
+					</h3>
+					<p class="text-secondary mb-4">
+						Custom website with contact form and essential business
+						features
+					</p>
+					<div class="text-accent-dark font-bold mb-4">
+						$649 + $59/month
+					</div>
+					<Button href="/services" variant="outline" size="sm"
+						>Learn More</Button
+					>
+				</Card>
+
+				<Card
+					shadow="md"
+					class="text-center border-secondary border-2 relative"
+				>
+					<div
+						class="bg-secondary text-background text-xs font-bold py-1.5 px-3 rounded-md absolute top-2 left-1/2 transform -translate-x-1/2 -translate-y-1/3 z-10"
+					>
+						RECOMMENDED
+					</div>
+					<div class="flex justify-center mb-4 pt-2.5">
+						<div class="bg-secondary/20 p-4 rounded-full">
+							<svg
+								class="h-8 w-8 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+								></path>
+							</svg>
+						</div>
+					</div>
+					<h3 class="text-xl font-semibold mb-2 text-primary">
+						E-Commerce Website
+					</h3>
+					<p class="text-secondary mb-4">
+						Complete online store with product management and secure
+						payments
+					</p>
+					<div class="text-accent-dark font-bold mb-4">
+						$1,299 + $129/month
+					</div>
+					<Button href="/services" variant="primary" size="sm"
+						>Learn More</Button
+					>
+				</Card>
+
+				<Card shadow="md" class="text-center">
+					<div class="flex justify-center mb-4 pt-2.5">
+						<div class="bg-secondary/20 p-4 rounded-full">
+							<svg
+								class="h-8 w-8 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+								></path>
+							</svg>
+						</div>
+					</div>
+					<h3 class="text-xl font-semibold mb-2 text-primary">
+						Custom Applications
+					</h3>
+					<p class="text-secondary mb-4">
+						Bespoke web and mobile applications for specialized
+						business needs
+					</p>
+					<div class="text-accent-dark font-bold mb-4">
+						From $5,799 + $370/month
+					</div>
+					<Button href="/services" variant="outline" size="sm"
+						>Learn More</Button
+					>
+				</Card>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Features Section -->
+	<Section background="primary" paddingY="lg">
+		<Container>
+			<SectionHeading
+				title={homeContent.features.title}
+				subtitle={homeContent.features.subtitle}
+				class="text-background"
+			/>
+
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+			>
+				{
+					homeContent.features.items.map((feature) => (
+						<Card shadow="sm" class="text-center bg-background">
+							<div class="flex justify-center mb-4">
+								<div class="bg-secondary/20 p-3 rounded-full">
+									<svg
+										class="h-5 w-5 text-primary"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M5 13l4 4L19 7"
+										/>
+									</svg>
+								</div>
+							</div>
+							<h3 class="text-xl font-semibold mb-2 text-primary">
+								{feature.title}
+							</h3>
+							<p class="text-secondary">{feature.description}</p>
+						</Card>
+					))
+				}
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Services Showcase Section -->
+	<Section background="cream" paddingY="lg">
+		<Container>
+			<SectionHeading
+				title="Everything You Need for Online Success"
+				subtitle="Comprehensive web services for small businesses"
+			/>
+
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12"
+			>
+				<div class="bg-white p-6 rounded-lg">
+					<div class="flex items-start mb-4">
+						<div
+							class="flex-shrink-0 bg-secondary/20 p-2 rounded-full mr-4"
+						>
+							<svg
+								class="h-5 w-5 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+								></path>
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-primary">
+							Fast and Secure Hosting
+						</h3>
+					</div>
+					<p class="text-secondary">
+						Lightning-fast, reliable hosting that keeps your website
+						secure and available 24/7.
+					</p>
+				</div>
+
+				<div class="bg-white p-6 rounded-lg">
+					<div class="flex items-start mb-4">
+						<div
+							class="flex-shrink-0 bg-secondary/20 p-2 rounded-full mr-4"
+						>
+							<svg
+								class="h-5 w-5 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+								></path>
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-primary">
+							Custom Domain & Business Emails
+						</h3>
+					</div>
+					<p class="text-secondary">
+						Professional domain names and matching email addresses
+						for your business.
+					</p>
+				</div>
+
+				<div class="bg-white p-6 rounded-lg">
+					<div class="flex items-start mb-4">
+						<div
+							class="flex-shrink-0 bg-secondary/20 p-2 rounded-full mr-4"
+						>
+							<svg
+								class="h-5 w-5 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+								></path>
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-primary">
+							E-Commerce Integration
+						</h3>
+					</div>
+					<p class="text-secondary">
+						Powerful online store capabilities with secure payment
+						processing and inventory management.
+					</p>
+				</div>
+
+				<div class="bg-white p-6 rounded-lg">
+					<div class="flex items-start mb-4">
+						<div
+							class="flex-shrink-0 bg-secondary/20 p-2 rounded-full mr-4"
+						>
+							<svg
+								class="h-5 w-5 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+								></path>
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-primary">
+							Conversion-Focused Design
+						</h3>
+					</div>
+					<p class="text-secondary">
+						Websites designed to convert visitors into customers
+						with clear calls-to-action.
+					</p>
+				</div>
+
+				<div class="bg-white p-6 rounded-lg">
+					<div class="flex items-start mb-4">
+						<div
+							class="flex-shrink-0 bg-secondary/20 p-2 rounded-full mr-4"
+						>
+							<svg
+								class="h-5 w-5 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+								></path>
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-primary">
+							Content Writing Services
+						</h3>
+					</div>
+					<p class="text-secondary">
+						Professional copywriting that engages visitors and
+						represents your brand effectively.
+					</p>
+				</div>
+
+				<div class="bg-white p-6 rounded-lg">
+					<div class="flex items-start mb-4">
+						<div
+							class="flex-shrink-0 bg-secondary/20 p-2 rounded-full mr-4"
+						>
+							<svg
+								class="h-5 w-5 text-primary"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+								></path>
+							</svg>
+						</div>
+						<h3 class="text-lg font-semibold text-primary">
+							Social Media Integration
+						</h3>
+					</div>
+					<p class="text-secondary">
+						Seamless integration with your social media platforms to
+						enhance your online presence.
+					</p>
+				</div>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- About Section -->
+	<Section background="primary" paddingY="lg">
+		<Container>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<h2
+						class="text-3xl font-bold tracking-tight sm:text-4xl mb-6 text-background"
+					>
+						{homeContent.about.title}
+					</h2>
+					<p class="text-lg text-accent mb-8">
+						{homeContent.about.subtitle}
+					</p>
+					<p class="text-secondary mb-8">
+						{homeContent.about.content}
+					</p>
+					<div class="grid grid-cols-3 gap-4">
+						{
+							homeContent.about.stats.map((stat) => (
+								<div class="text-center">
+									<p class="text-3xl font-bold text-accent">
+										{stat.value}
+									</p>
+									<p class="text-sm text-background">
+										{stat.label}
+									</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
+				<div class="hidden lg:block">
+					<img
+						src={homeContent.about.image}
+						alt="About our company"
+						class="rounded-lg shadow-lg"
+					/>
+				</div>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Testimonials Section -->
+	<Section background="cream" paddingY="lg">
+		<Container>
+			<SectionHeading
+				title={homeContent.testimonials.title}
+				subtitle={homeContent.testimonials.subtitle}
+			/>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+				{
+					homeContent.testimonials.items.map((testimonial) => (
+						<Card shadow="md">
+							<div class="flex flex-col h-full">
+								<div class="mb-4 text-accent quote-icon">
+									<svg
+										class="h-6 w-6"
+										fill="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+									</svg>
+								</div>
+								<p class="text-secondary mb-4 flex-grow">
+									{testimonial.quote}
+								</p>
+								<div class="flex items-center">
+									<div class="flex-shrink-0 mr-3">
+										<img
+											class="h-10 w-10 rounded-full"
+											src={testimonial.image}
+											alt={testimonial.author}
+										/>
+									</div>
+									<div>
+										<h4 class="text-sm font-medium text-primary">
+											{testimonial.author}
+										</h4>
+										<p class="text-xs text-secondary">
+											{testimonial.company}
+										</p>
+									</div>
+								</div>
+							</div>
+						</Card>
+					))
+				}
+			</div>
+		</Container>
+	</Section>
+
+	<!-- CTA Section -->
+	<Section background="primary" paddingY="lg">
+		<Container size="md">
+			<div class="text-center">
+				<h2
+					class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-background"
+				>
+					{homeContent.cta.title}
+				</h2>
+				<p class="text-xl mb-8 text-accent">
+					{homeContent.cta.subtitle}
+				</p>
+				<Button
+					href={homeContent.cta.button.link}
+					variant="secondary"
+					size="lg"
+				>
+					{homeContent.cta.button.text}
+				</Button>
+			</div>
+		</Container>
+	</Section>
+</Layout>

@@ -1,0 +1,247 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { businessConfig } from "../config/branding";
+import { servicesContent } from "../config/content";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import Card from "../components/Card.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout title="Services">
+	<!-- Hero Section -->
+	<Section background="primary" paddingY="lg">
+		<Container>
+			<div class="text-center">
+				<h1
+					class="text-4xl font-bold tracking-tight sm:text-5xl mb-6 text-cream"
+				>
+					{servicesContent.hero.title}
+				</h1>
+				<p class="text-xl mb-8 text-cream/90 max-w-3xl mx-auto">
+					{servicesContent.hero.subtitle}
+				</p>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- Services List Section -->
+	<Section background="cream" paddingY="lg">
+		<Container>
+			{
+				servicesContent.servicesList.map((service, index) => (
+					<div
+						class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index > 0 ? "mt-24" : ""}`}
+					>
+						<div class={index % 2 === 1 ? "lg:order-2" : ""}>
+							<h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-primary">
+								{service.title}
+							</h2>
+							<div class="mb-4">
+								<span class="text-3xl font-bold text-secondary-dark">
+									{service.pricing.setup}
+								</span>
+								<span class="text-primary/80">
+									{" "}
+									+ {service.pricing.monthly}
+								</span>
+							</div>
+							<p class="text-primary/80 mb-6">
+								{service.description}
+							</p>
+							<div class="mb-6">
+								<h3 class="text-xl font-semibold mb-3 text-primary">
+									What's included:
+								</h3>
+								<ul class="space-y-2">
+									{service.features.map((feature) => (
+										<li class="flex items-start">
+											<span class="flex-shrink-0 h-5 w-5 text-secondary">
+												<svg
+													class="h-5 w-5"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke="currentColor"
+												>
+													<path
+														stroke-linecap="round"
+														stroke-linejoin="round"
+														stroke-width="2"
+														d="M5 13l4 4L19 7"
+													/>
+												</svg>
+											</span>
+											<span class="ml-3 text-primary/80">
+												{feature}
+											</span>
+										</li>
+									))}
+								</ul>
+							</div>
+							<Button
+								href="/contact"
+								variant="primary"
+								class="bg-secondary hover:bg-secondary-dark text-cream transition-colors"
+								size="lg"
+							>
+								Get Started
+							</Button>
+						</div>
+						<div
+							class={`hidden lg:block ${index % 2 === 1 ? "lg:order-1" : ""}`}
+						>
+							<img
+								src={service.image}
+								alt={service.title}
+								class="rounded-lg shadow-lg w-full max-w-full"
+							/>
+						</div>
+					</div>
+				))
+			}
+		</Container>
+	</Section>
+
+	<!-- Process Section -->
+	<Section background="primary-light" paddingY="lg">
+		<Container>
+			<SectionHeading
+				title={servicesContent.process.title}
+				subtitle={servicesContent.process.subtitle}
+				class="text-cream"
+			/>
+
+			<div class="mt-16">
+				<div class="relative">
+					<!-- Process line -->
+					<div
+						class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-cream/20"
+					>
+					</div>
+
+					<div class="space-y-16">
+						{
+							servicesContent.process.steps.map((step, index) => (
+								<div class="relative">
+									<div class="md:flex items-center">
+										<div class="md:w-1/2 md:pr-8 md:text-right">
+											{index % 2 === 0 ? (
+												<div>
+													<h3 class="text-2xl font-bold text-cream mb-2">
+														{step.title}
+													</h3>
+													<p class="text-cream/80">
+														{step.description}
+													</p>
+												</div>
+											) : (
+												<div class="md:hidden">
+													<div class="flex items-center">
+														<div class="flex-shrink-0 h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-cream font-bold">
+															{step.number}
+														</div>
+														<div class="ml-4">
+															<h3 class="text-2xl font-bold text-cream mb-2">
+																{step.title}
+															</h3>
+														</div>
+													</div>
+													<p class="text-cream/80 mt-2">
+														{step.description}
+													</p>
+												</div>
+											)}
+										</div>
+
+										<div class="hidden md:flex flex-shrink-0 h-16 w-16 rounded-full bg-secondary items-center justify-center text-cream text-2xl font-bold z-10">
+											{step.number}
+										</div>
+
+										<div class="md:w-1/2 md:pl-8">
+											{index % 2 === 1 ? (
+												<div>
+													<h3 class="text-2xl font-bold text-cream mb-2">
+														{step.title}
+													</h3>
+													<p class="text-cream/80">
+														{step.description}
+													</p>
+												</div>
+											) : (
+												<div class="md:hidden">
+													<div class="flex items-center">
+														<div class="flex-shrink-0 h-10 w-10 rounded-full bg-secondary flex items-center justify-center text-cream font-bold">
+															{step.number}
+														</div>
+														<div class="ml-4">
+															<h3 class="text-2xl font-bold text-cream mb-2">
+																{step.title}
+															</h3>
+														</div>
+													</div>
+													<p class="text-cream/80 mt-2">
+														{step.description}
+													</p>
+												</div>
+											)}
+										</div>
+									</div>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</Container>
+	</Section>
+
+	<!-- FAQ Section -->
+	<Section background="cream" paddingY="lg">
+		<Container size="md">
+			<SectionHeading
+				title={servicesContent.faq.title}
+				subtitle={servicesContent.faq.subtitle}
+				class="text-primary"
+			/>
+
+			<div class="mt-12 space-y-6">
+				{
+					servicesContent.faq.questions.map((faq, index) => (
+						<div class="bg-white rounded-lg p-6 shadow-sm border border-primary-light/20">
+							<h3 class="text-xl font-semibold text-primary mb-3">
+								{faq.question}
+							</h3>
+							<p class="text-primary/80">{faq.answer}</p>
+						</div>
+					))
+				}
+			</div>
+		</Container>
+	</Section>
+
+	<!-- CTA Section -->
+	<Section background="secondary" paddingY="lg">
+		<Container size="md">
+			<div class="text-center">
+				<h2
+					class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-cream"
+				>
+					Ready to Get Started?
+				</h2>
+				<p class="text-xl mb-8 text-cream/90">
+					Contact us today for a risk-free consultation about your
+					website needs.
+				</p>
+				<Button
+					href="/contact"
+					variant="primary"
+					class="bg-secondary-dark hover:bg-primary text-cream transition-colors"
+					size="lg"
+				>
+					Book Free Consultation
+				</Button>
+			</div>
+		</Container>
+	</Section>
+</Layout>
