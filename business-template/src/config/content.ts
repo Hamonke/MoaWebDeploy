@@ -16,7 +16,7 @@ export const homeContent = {
         image: "https://placehold.co/1200x600?text=Local+Web+Development"
     },
     features: {
-        title: "Why Choose WebCraft NZ",
+        title: "Why Choose MoaWeb NZ",
         subtitle: "Local expertise with world-class results",
         items: [
             {
@@ -44,7 +44,7 @@ export const homeContent = {
     about: {
         title: "Local Web Experts",
         subtitle: "How we help Christchurch businesses succeed online",
-        content: "At WebCraft NZ, we understand the unique challenges faced by small businesses in New Zealand. Our team combines local market knowledge with cutting-edge web development expertise to create digital solutions that truly work for Kiwi businesses. Whether you need a simple website with a contact form or a full-featured e-commerce platform, we deliver professional, reliable, and affordable web services.",
+        content: "At MoaWeb NZ, we understand the unique challenges faced by small businesses in New Zealand. Our team combines local market knowledge with cutting-edge web development expertise to create digital solutions that truly work for Kiwi businesses. Whether you need a simple website with a contact form or a full-featured e-commerce platform, we deliver professional, reliable, and affordable web services.",
         image: "https://placehold.co/800x600?text=Local+Web+Development",
         stats: [
             {
@@ -66,19 +66,19 @@ export const homeContent = {
         subtitle: "Hear from Christchurch businesses we've helped grow",
         items: [
             {
-                quote: "WebCraft NZ transformed our outdated website into a modern, functional platform that's brought in numerous new customers. Their local support has been invaluable whenever we need help or updates.",
+                quote: "MoaWeb NZ transformed our outdated website into a modern, functional platform that's brought in numerous new customers. Their local support has been invaluable whenever we need help or updates.",
                 author: "Sarah Wilson",
                 company: "Canterbury Cafe",
                 image: "https://placehold.co/100x100?text=Sarah"
             },
             {
-                quote: "Setting up our online shop was seamless thanks to WebCraft. Sales increased by 45% in the first three months, and their ongoing maintenance keeps everything running smoothly.",
+                quote: "Setting up our online shop was seamless thanks to MoaWeb. Sales increased by 45% in the first three months, and their ongoing maintenance keeps everything running smoothly.",
                 author: "David Thompson",
                 company: "Kiwi Crafts Co.",
                 image: "https://placehold.co/100x100?text=David"
             },
             {
-                quote: "As a small business owner, I needed a website that wouldn't break the bank but still looked professional. WebCraft delivered exactly what I needed, on time and on budget.",
+                quote: "As a small business owner, I needed a website that wouldn't break the bank but still looked professional. MoaWeb delivered exactly what I needed, on time and on budget.",
                 author: "Emma Johnson",
                 company: "Christchurch Consulting",
                 image: "https://placehold.co/100x100?text=Emma"
@@ -98,13 +98,13 @@ export const homeContent = {
 // About page content
 export const aboutContent = {
     hero: {
-        title: "About WebCraft NZ",
+        title: "About MoaWeb NZ",
         subtitle: "Your local web development partner in Christchurch",
-        image: "https://placehold.co/1200x600?text=About+WebCraft+NZ"
+        image: "https://placehold.co/1200x600?text=About+MoaWeb+NZ"
     },
     story: {
         title: "Our Story",
-        content: "Founded in Christchurch with a passion for helping local businesses thrive online, WebCraft NZ has grown into a trusted web development partner for small businesses across Canterbury. We believe that every business, regardless of size, deserves a professional online presence that truly represents their brand and helps them achieve their goals. Our team combines technical expertise with local market knowledge to deliver web solutions that work for New Zealand businesses.",
+        content: "Founded in Christchurch with a passion for helping local businesses thrive online, MoaWeb NZ has grown into a trusted web development partner for small businesses across Canterbury. We believe that every business, regardless of size, deserves a professional online presence that truly represents their brand and helps them achieve their goals. Our team combines technical expertise with local market knowledge to deliver web solutions that work for New Zealand businesses.",
         image: "https://placehold.co/800x600?text=Our+Journey"
     },
     mission: {
@@ -134,12 +134,12 @@ export const aboutContent = {
     },
     team: {
         title: "Our Team",
-        subtitle: "Meet the local experts behind WebCraft NZ",
+        subtitle: "Meet the local experts behind MoaWeb NZ",
         members: [
             {
                 name: "Mike Wilson",
                 role: "Founder & Lead Developer",
-                bio: "With over 15 years of experience in web development, Mike leads WebCraft NZ with a focus on creating practical, effective websites for local businesses.",
+                bio: "With over 15 years of experience in web development, Mike leads MoaWeb NZ with a focus on creating practical, effective websites for local businesses.",
                 image: "https://placehold.co/300x300?text=Mike+Wilson"
             },
             {
@@ -157,7 +157,7 @@ export const aboutContent = {
             {
                 name: "Emma Roberts",
                 role: "Client Success Manager",
-                bio: "Emma ensures that every client receives exceptional service and ongoing support throughout their journey with WebCraft NZ.",
+                bio: "Emma ensures that every client receives exceptional service and ongoing support throughout their journey with MoaWeb NZ.",
                 image: "https://placehold.co/300x300?text=Emma+Roberts"
             }
         ]
@@ -322,7 +322,7 @@ export const contactContent = {
         items: [
             {
                 label: "Email",
-                value: "hello@webcraftnz.co.nz",
+                value: "hello@MoaWebnz.co.nz",
                 icon: "email"
             },
             {

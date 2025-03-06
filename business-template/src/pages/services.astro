@@ -15,11 +15,11 @@ import Button from "../components/Button.astro";
 		<Container>
 			<div class="text-center">
 				<h1
-					class="text-4xl font-bold tracking-tight sm:text-5xl mb-6 text-cream"
+					class="text-4xl font-bold tracking-tight sm:text-5xl mb-6 text-background"
 				>
 					{servicesContent.hero.title}
 				</h1>
-				<p class="text-xl mb-8 text-cream/90 max-w-3xl mx-auto">
+				<p class="text-xl mb-8 text-accent max-w-3xl mx-auto">
 					{servicesContent.hero.subtitle}
 				</p>
 			</div>
@@ -109,14 +109,14 @@ import Button from "../components/Button.astro";
 			<SectionHeading
 				title={servicesContent.process.title}
 				subtitle={servicesContent.process.subtitle}
-				class="text-cream"
+				class="text-accent"
 			/>
 
 			<div class="mt-16">
 				<div class="relative">
 					<!-- Process line -->
 					<div
-						class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-cream/20"
+						class="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 h-full w-1 bg-accent"
 					>
 					</div>
 
@@ -128,7 +128,7 @@ import Button from "../components/Button.astro";
 										<div class="md:w-1/2 md:pr-8 md:text-right">
 											{index % 2 === 0 ? (
 												<div>
-													<h3 class="text-2xl font-bold text-cream mb-2">
+													<h3 class="text-2xl font-bold text-black mb-2">
 														{step.title}
 													</h3>
 													<p class="text-cream/80">
@@ -236,7 +236,7 @@ import Button from "../components/Button.astro";
 				<Button
 					href="/contact"
 					variant="primary"
-					class="bg-secondary-dark hover:bg-primary text-cream transition-colors"
+					class="bg-primary hover:bg-secondary text-background transition-colors"
 					size="lg"
 				>
 					Book Free Consultation

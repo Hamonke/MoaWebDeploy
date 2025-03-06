@@ -34,9 +34,9 @@ export interface BusinessConfig {
 
 // Default business configuration
 export const businessConfig: BusinessConfig = {
-    name: "WebCraft NZ",
+    name: "MoaWeb NZ",
     tagline: "Bespoke Web Solutions for Local Businesses",
-    description: "WebCraft NZ is Christchurch's premier web development company, specializing in creating custom websites, e-commerce platforms, and mobile applications that help small businesses establish a powerful online presence.",
+    description: "MoaWeb NZ is Christchurch's premier web development company, specializing in creating custom websites, e-commerce platforms, and mobile applications that help small businesses establish a powerful online presence.",
     logo: "/images/header_logo.JPG", // Direct path to JPG logo image
     colors: {
         primary: "#2563EB", // Blue
@@ -44,7 +44,7 @@ export const businessConfig: BusinessConfig = {
         accent: "#F59E0B", // Amber
     },
     contact: {
-        email: "hello@webcraftnz.co.nz",
+        email: "hello@MoaWebnz.co.nz",
         phone: "03 555 1234",
         address: {
             street: "123 Cathedral Square",
@@ -60,10 +60,10 @@ export const businessConfig: BusinessConfig = {
         { day: "Sunday", hours: "Closed" },
     ],
     socialMedia: {
-        facebook: "https://facebook.com/webcraftnz",
-        twitter: "https://twitter.com/webcraftnz",
-        instagram: "https://instagram.com/webcraftnz",
-        linkedin: "https://linkedin.com/company/webcraftnz",
-        youtube: "https://youtube.com/webcraftnz",
+        facebook: "https://facebook.com/MoaWebnz",
+        twitter: "https://twitter.com/MoaWebnz",
+        instagram: "https://instagram.com/MoaWebnz",
+        linkedin: "https://linkedin.com/company/MoaWebnz",
+        youtube: "https://youtube.com/MoaWebnz",
     },
 }; 
