@@ -7,17 +7,85 @@
     /* Soft Nature Theme (Default) */
     --primary-color: #ccd5ae;
     /* Light sage/olive */
+    --primary-color-rgb: 204, 213, 174;
+
     --secondary-color: #e9edc9;
     /* Very pale green */
+    --secondary-color-rgb: 233, 237, 201;
+
     --accent-color: #fefae0;
     /* Cream */
+    --accent-color-rgb: 254, 250, 224;
+
     --background-color: #faedcd;
     /* Light peach */
+    --background-color-rgb: 250, 237, 205;
+
     --accent-dark: #d4a373;
     /* Tan/light brown */
+    --accent-dark-rgb: 212, 163, 115;
 
     /* Set text color for default theme to ensure visibility */
     --text-color: #5c6036;
+}
+
+/* Ensure icon circles in cards display correctly */
+.bg-secondary\/20.rounded-full,
+div[class*="bg-secondary/20"].rounded-full {
+    background-color: rgba(var(--secondary-color-rgb, 233, 237, 201), 0.2) !important;
+    border-radius: 9999px !important;
+    border: 2px solid var(--secondary-color) !important;
+}
+
+/* Fix for all circle backgrounds with opacity */
+[class*="rounded-full"][class*="bg-primary"],
+[class*="rounded-full"][class*="bg-secondary"],
+[class*="rounded-full"][class*="bg-accent"],
+[class*="rounded-full"][class*="bg-background"],
+[class*="rounded-full"].bg-cream {
+    border-radius: 9999px !important;
+    border: 2px solid var(--secondary-color) !important;
+}
+
+/* Theme-based logo visibility */
+.theme-logo-white {
+    display: none;
+}
+
+.theme-logo-black {
+    display: block;
+}
+
+/* Show white logo in dark header/footer */
+header.bg-accent-dark .theme-logo-white,
+footer.bg-primary .theme-logo-white {
+    display: block;
+}
+
+header.bg-accent-dark .theme-logo-black,
+footer.bg-primary .theme-logo-black {
+    display: none;
+}
+
+/* Theme-specific logo visibility */
+[data-theme="nature"] .theme-logo-white,
+[data-theme="forest"] .theme-logo-white,
+[data-theme="coastal"] .theme-logo-white {
+    display: block;
+}
+
+[data-theme="nature"] .theme-logo-black,
+[data-theme="forest"] .theme-logo-black,
+[data-theme="coastal"] .theme-logo-black {
+    display: none;
+}
+
+[data-theme="pastel"] .theme-logo-white {
+    display: none;
+}
+
+[data-theme="pastel"] .theme-logo-black {
+    display: block;
 }
 
 /* Fix layout issues in Soft Nature theme */
@@ -633,4 +701,36 @@ header .hidden.ml-10.space-x-8.lg\:block a {
     display: inline-block !important;
     margin-right: 1.5rem !important;
     white-space: nowrap !important;
+}
+
+/* Standardized image presentation */
+.standardized-image {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid var(--secondary-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.standardized-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset all image styling to browser defaults */
+img {
+    /* Use browser defaults for image rendering */
+    image-rendering: auto;
+    transform: none;
+    filter: none;
+    will-change: auto;
+    transition: none;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    -webkit-font-smoothing: antialiased;
+    box-shadow: none;
 }

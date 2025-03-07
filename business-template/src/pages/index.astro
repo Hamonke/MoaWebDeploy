@@ -47,9 +47,9 @@ import Button from "../components/Button.astro";
 				</div>
 				<div class="hidden lg:block">
 					<img
-						src={homeContent.hero.image}
-						alt="Hero image"
-						class="rounded-lg shadow-xl w-full max-w-full"
+						src="/images/app1.jpg"
+						alt="Web Solutions for Christchurch Businesses"
+						class="rounded-lg shadow-xl w-full max-w-full border-4 border-secondary"
 					/>
 				</div>
 			</div>
@@ -448,9 +448,9 @@ import Button from "../components/Button.astro";
 				</div>
 				<div class="hidden lg:block">
 					<img
-						src={homeContent.about.image}
-						alt="About our company"
-						class="rounded-lg shadow-lg"
+						src="/images/christchurch1.jpg"
+						alt="Local Web Experts - Christchurch"
+						class="rounded-lg shadow-lg border-4 border-secondary object-cover w-full h-full"
 					/>
 				</div>
 			</div>
@@ -485,7 +485,7 @@ import Button from "../components/Button.astro";
 								<div class="flex items-center">
 									<div class="flex-shrink-0 mr-3">
 										<img
-											class="h-10 w-10 rounded-full"
+											class="h-10 w-10 rounded-full border-2 border-secondary object-cover"
 											src={testimonial.image}
 											alt={testimonial.author}
 										/>
@@ -531,3 +531,12 @@ import Button from "../components/Button.astro";
 		</Container>
 	</Section>
 </Layout>
+
+<style>
+	/* Add styles for image standardization */
+	img.border-4 {
+		aspect-ratio: 16/9;
+		object-fit: cover;
+		object-position: center;
+	}
+</style>

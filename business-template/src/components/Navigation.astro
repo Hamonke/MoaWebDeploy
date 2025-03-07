@@ -21,28 +21,17 @@ const navItems: NavItem[] = [
     >
       <div class="flex items-center">
         <a href="/" class="flex-shrink-0 mr-1 flex items-center">
-          <div class="mr-1">
-            <div class="text-black text-6xl font-black leading-none">
-              Moa Web
-            </div>
-            <div class="text-black text-base font-mono leading-none ml-0.5">
-              Web Development Giants
-            </div>
-          </div>
+          <img
+            src="/images/header_logo_white.png"
+            alt={businessConfig.name}
+            class="h-16 w-auto object-contain theme-logo-white"
+          />
+          <img
+            src="/images/header_logo_black.png"
+            alt={businessConfig.name}
+            class="h-16 w-auto object-contain theme-logo-black"
+          />
           <span class="sr-only">{businessConfig.name}</span>
-          {
-            businessConfig.logo ? (
-              <img
-                class="h-16 w-auto object-contain"
-                src={businessConfig.logo}
-                alt={businessConfig.name}
-              />
-            ) : (
-              <span class="text-xl font-bold text-primary">
-                {businessConfig.name}
-              </span>
-            )
-          }
         </a>
         <div class="hidden ml-10 space-x-8 lg:block">
           {

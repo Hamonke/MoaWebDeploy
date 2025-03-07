@@ -92,9 +92,16 @@ import Button from "../components/Button.astro";
 							class={`hidden lg:block ${index % 2 === 1 ? "lg:order-1" : ""}`}
 						>
 							<img
-								src={service.image}
+								id={`service-image-${index}`}
+								src={
+									index === 0
+										? "/images/website1.jpg"
+										: index === 1
+											? "/images/ecom1.jpg"
+											: "/images/app1.jpg"
+								}
 								alt={service.title}
-								class="rounded-lg shadow-lg w-full max-w-full"
+								class="rounded-lg shadow-lg w-full max-w-full transition-opacity duration-500"
 							/>
 						</div>
 					</div>
@@ -245,3 +252,57 @@ import Button from "../components/Button.astro";
 		</Container>
 	</Section>
 </Layout>
+
+<script>
+	// Image cycling functionality
+	document.addEventListener("DOMContentLoaded", () => {
+		// Setup image sources for each service
+		const imageSets = [
+			[
+				"/images/website1.jpg",
+				"/images/website2.jpg",
+				"/images/website3.jpg",
+			], // Professional Business Website
+			["/images/ecom1.jpg", "/images/ecom2.jpg", "/images/ecom3.jpg"], // Ecommerce Website
+			["/images/app1.jpg", "/images/app2.jpg"], // Custom Web & Mobile Applications
+		];
+
+		// Current image index for each service
+		const currentIndices = [0, 0, 0];
+
+		// Set interval for each image
+		for (let i = 0; i < imageSets.length; i++) {
+			setInterval(
+				() => {
+					const imageElement = document.getElementById(
+						`service-image-${i}`,
+					) as HTMLImageElement;
+					if (imageElement) {
+						// Fade out
+						imageElement.style.opacity = "0";
+
+						// Wait for fade out to complete, then change image and fade back in
+						setTimeout(() => {
+							currentIndices[i] =
+								(currentIndices[i] + 1) % imageSets[i].length;
+							imageElement.src = imageSets[i][currentIndices[i]];
+
+							// Small delay to ensure the new image is loaded
+							setTimeout(() => {
+								imageElement.style.opacity = "1";
+							}, 50);
+						}, 500); // Match to the CSS transition duration
+					}
+				},
+				5000 + i * 500,
+			); // Longer interval to account for fade duration
+		}
+	});
+</script>
+
+<style>
+	/* Ensure images start fully opaque */
+	img {
+		opacity: 1;
+	}
+</style>

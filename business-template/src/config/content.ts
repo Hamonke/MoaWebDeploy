@@ -13,7 +13,7 @@ export const homeContent = {
                 link: "/contact"
             }
         },
-        image: "https://placehold.co/1200x600?text=Local+Web+Development"
+        image: "/images/website1.jpg"
     },
     features: {
         title: "Why Choose MoaWeb NZ",
@@ -45,7 +45,7 @@ export const homeContent = {
         title: "Local Web Experts",
         subtitle: "How we help Christchurch businesses succeed online",
         content: "At MoaWeb NZ, we understand the unique challenges faced by small businesses in New Zealand. Our team combines local market knowledge with cutting-edge web development expertise to create digital solutions that truly work for Kiwi businesses. Whether you need a simple website with a contact form or a full-featured e-commerce platform, we deliver professional, reliable, and affordable web services.",
-        image: "https://placehold.co/800x600?text=Local+Web+Development",
+        image: "/images/christchurch1.jpg",
         stats: [
             {
                 value: "100+",
@@ -105,7 +105,7 @@ export const aboutContent = {
     story: {
         title: "Our Story",
         content: "Founded in Christchurch with a passion for helping local businesses thrive online, MoaWeb NZ has grown into a trusted web development partner for small businesses across Canterbury. We believe that every business, regardless of size, deserves a professional online presence that truly represents their brand and helps them achieve their goals. Our team combines technical expertise with local market knowledge to deliver web solutions that work for New Zealand businesses.",
-        image: "https://placehold.co/800x600?text=Our+Journey"
+        image: "/images/christchurch2.jpg"
     },
     mission: {
         title: "Our Mission",

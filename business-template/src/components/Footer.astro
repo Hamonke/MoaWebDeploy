@@ -44,27 +44,17 @@ const currentYear = new Date().getFullYear();
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
       <div class="space-y-6 xl:col-span-1">
         <div class="flex-shrink-0 mr-8 flex items-center">
-          <div class="mr-1">
-            <div class="text-white text-4xl font-black leading-tight">
-              Moa Web
-            </div>
-            <div class="text-white text-sm font-mono">
-              Web Development Giants
-            </div>
-          </div>
-          {
-            businessConfig.logo ? (
-              <img
-                class="h-16 w-auto object-contain"
-                src={businessConfig.logo}
-                alt={businessConfig.name}
-              />
-            ) : (
-              <span class="text-xl font-bold text-background">
-                {businessConfig.name}
-              </span>
-            )
-          }
+          <img
+            src="/images/header_logo_white.png"
+            alt={businessConfig.name}
+            class="h-12 w-auto object-contain theme-logo-white"
+          />
+          <img
+            src="/images/header_logo_black.png"
+            alt={businessConfig.name}
+            class="h-12 w-auto object-contain theme-logo-black"
+          />
+          <span class="sr-only">{businessConfig.name}</span>
         </div>
 
         <p class="text-secondary text-base mt-2">
