@@ -1,8 +1,8 @@
 ---
-import { businessConfig } from '../config/branding';
-import Navigation from '../components/Navigation.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import { businessConfig } from "../config/branding";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
 	title: string;
@@ -22,6 +22,13 @@ const pageTitle = `${title} | ${businessConfig.name}`;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<script is:inline>
+			// Initialize theme from localStorage on page load
+			const savedTheme = localStorage.getItem("theme") || "default";
+			if (savedTheme && savedTheme !== "default") {
+				document.documentElement.setAttribute("data-theme", savedTheme);
+			}
+		</script>
 	</head>
 	<body class="min-h-screen flex flex-col">
 		<Navigation />

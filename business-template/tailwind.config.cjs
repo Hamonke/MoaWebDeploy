@@ -4,11 +4,11 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'primary': '#283618',    /* Blue */
-                'secondary': '#606c38',   /* Emerald */
-                'accent': '#dda15e',      /* Amber */
-                'accent-dark': '#bc6c25', /* Darker Amber */
-                'background': '#fefae0',  /* White */
+                'primary': 'var(--primary-color)',    /* Dynamic theme color */
+                'secondary': 'var(--secondary-color)',   /* Dynamic theme color */
+                'accent': 'var(--accent-color)',      /* Dynamic theme color */
+                'accent-dark': 'var(--accent-dark)', /* Dynamic theme color */
+                'background': 'var(--background-color)',  /* Dynamic theme color */
                 'gray': {
                     300: '#D1D5DB',
                     400: '#9CA3AF',

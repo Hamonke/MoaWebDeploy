@@ -4,6 +4,145 @@
 
 /* Custom styles */
 :root {
+    /* Soft Nature Theme (Default) */
+    --primary-color: #ccd5ae;
+    /* Light sage/olive */
+    --secondary-color: #e9edc9;
+    /* Very pale green */
+    --accent-color: #fefae0;
+    /* Cream */
+    --background-color: #faedcd;
+    /* Light peach */
+    --accent-dark: #d4a373;
+    /* Tan/light brown */
+
+    /* Set text color for default theme to ensure visibility */
+    --text-color: #5c6036;
+}
+
+/* Fix layout issues in Soft Nature theme */
+header .w-full.py-6.flex.items-center.justify-between {
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Fix the header button container */
+header .ml-10.space-x-4 {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 1rem !important;
+    margin-left: auto !important;
+    /* Push to the right */
+    flex-shrink: 0 !important;
+    /* Prevent shrinking */
+    flex-wrap: nowrap !important;
+    width: auto !important;
+}
+
+/* Override Tailwind's space utilities that might be causing issues */
+header .space-x-4>*+* {
+    margin-left: 0 !important;
+}
+
+header .hidden.ml-10.space-x-8.lg\:block {
+    display: block !important;
+    white-space: nowrap !important;
+}
+
+/* Fix the button positioning */
+header #theme-toggle {
+    margin-right: 0.5rem !important;
+    display: inline-flex !important;
+    position: relative !important;
+}
+
+header a[href="/contact"].bg-secondary {
+    display: inline-flex !important;
+    position: relative !important;
+    background-color: var(--secondary-color);
+    color: var(--text-color) !important;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+/* Ensure buttons don't overlap */
+header .space-x-4>* {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+}
+
+header .space-x-4>*:last-child {
+    margin-right: 0 !important;
+}
+
+/* Add specific header navigation styles for default theme */
+header.bg-accent-dark {
+    background-color: var(--accent-dark);
+}
+
+header nav a.text-background {
+    color: #ffffff !important;
+}
+
+/* Fix tab navigation items for main header */
+.hidden.ml-10.space-x-8.lg\:block a {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.hidden.ml-10.space-x-8.lg\:block a:hover {
+    color: var(--accent-color) !important;
+    opacity: 0.9;
+}
+
+/* Fix consultation button in default theme */
+header a[href="/contact"].bg-secondary:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix theme toggle button in default theme */
+#theme-toggle.bg-background {
+    margin-right: 0.5rem !important;
+    display: inline-flex !important;
+    position: relative !important;
+    background-color: var(--background-color);
+    color: var(--accent-dark) !important;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+#theme-toggle.bg-background:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile menu fixes for default theme */
+.mobile-menu a {
+    color: var(--text-color) !important;
+}
+
+.mobile-menu a:hover {
+    color: var(--primary-color) !important;
+}
+
+.mobile-menu-button {
+    color: #ffffff !important;
+}
+
+#theme-toggle-mobile {
+    color: var(--text-color) !important;
+}
+
+/* Nature Theme Colors (was the default, now fifth theme) */
+[data-theme="nature"] {
     --primary-color: #283618;
     /* Dark green */
     --secondary-color: #606c38;
@@ -16,13 +155,404 @@
     /* Dark brown */
 }
 
+/* Pastel Theme Colors */
+[data-theme="pastel"] {
+    --primary-color: #cdb4db;
+    /* Pastel purple */
+    --secondary-color: #ffc8dd;
+    /* Pastel pink */
+    --accent-color: #ffafcc;
+    /* Pastel darker pink */
+    --background-color: #bde0fe;
+    /* Pastel light blue */
+    --accent-dark: #a2d2ff;
+    /* Pastel darker blue */
+
+    /* Override text colors to be black in pastel mode */
+    --text-color: #000000;
+}
+
+/* Forest Theme Colors */
+[data-theme="forest"] {
+    --primary-color: #0d1321;
+    /* Dark navy */
+    --secondary-color: #6a994e;
+    /* Medium green */
+    --accent-color: #a7c957;
+    /* Light green */
+    --background-color: #f2e8cf;
+    /* Light cream */
+    --accent-dark: #bc4749;
+    /* Red accent */
+
+    /* Override text colors to ensure visibility in forest theme */
+    --text-color: #0d1321;
+}
+
+/* Coastal Theme Colors */
+[data-theme="coastal"] {
+    --primary-color: #264653;
+    /* Dark teal */
+    --secondary-color: #2a9d8f;
+    /* Medium teal */
+    --accent-color: #e9c46a;
+    /* Golden yellow */
+    --background-color: #f4a261;
+    /* Peach */
+    --accent-dark: #e76f51;
+    /* Terracotta */
+
+    /* Override text colors to ensure visibility in coastal theme */
+    --text-color: #264653;
+}
+
+/* Default text color for body to ensure visibility */
+body {
+    color: var(--text-color, #5c6036);
+}
+
+/* Set text color for specific theme elements */
+[data-theme="nature"] body {
+    color: var(--primary-color);
+}
+
+/* Set text color to black for most elements in pastel theme */
+[data-theme="pastel"] body {
+    color: #000000;
+}
+
+/* Set text color to dark navy for most elements in forest theme */
+[data-theme="forest"] body {
+    color: var(--primary-color);
+}
+
+/* Set text color to dark teal for most elements in coastal theme */
+[data-theme="coastal"] body {
+    color: var(--primary-color);
+}
+
+/* Main headings and text - nature theme */
+[data-theme="nature"] h1,
+[data-theme="nature"] h2,
+[data-theme="nature"] h3,
+[data-theme="nature"] h4,
+[data-theme="nature"] h5,
+[data-theme="nature"] h6,
+[data-theme="nature"] p,
+[data-theme="nature"] .text-primary,
+[data-theme="nature"] .text-secondary,
+[data-theme="nature"] .text-accent {
+    color: var(--primary-color) !important;
+}
+
+/* Main headings and text */
+[data-theme="pastel"] h1,
+[data-theme="pastel"] h2,
+[data-theme="pastel"] h3,
+[data-theme="pastel"] h4,
+[data-theme="pastel"] h5,
+[data-theme="pastel"] h6,
+[data-theme="pastel"] p,
+[data-theme="pastel"] .text-primary,
+[data-theme="pastel"] .text-secondary,
+[data-theme="pastel"] .text-accent {
+    color: #000000 !important;
+}
+
+/* Main headings and text for forest theme */
+[data-theme="forest"] h1,
+[data-theme="forest"] h2,
+[data-theme="forest"] h3,
+[data-theme="forest"] h4,
+[data-theme="forest"] h5,
+[data-theme="forest"] h6,
+[data-theme="forest"] p,
+[data-theme="forest"] .text-primary,
+[data-theme="forest"] .text-secondary,
+[data-theme="forest"] .text-accent {
+    color: var(--primary-color) !important;
+}
+
+/* Main headings and text for coastal theme */
+[data-theme="coastal"] h1,
+[data-theme="coastal"] h2,
+[data-theme="coastal"] h3,
+[data-theme="coastal"] h4,
+[data-theme="coastal"] h5,
+[data-theme="coastal"] h6,
+[data-theme="coastal"] p,
+[data-theme="coastal"] .text-primary,
+[data-theme="coastal"] .text-secondary,
+[data-theme="coastal"] .text-accent {
+    color: var(--primary-color) !important;
+}
+
+/* Text on colored backgrounds - nature theme */
+[data-theme="nature"] .bg-primary,
+[data-theme="nature"] .bg-secondary,
+[data-theme="nature"] .bg-accent,
+[data-theme="nature"] .bg-accent-dark {
+    color: #ffffff !important;
+}
+
+/* Text on colored backgrounds - keep them visible */
+[data-theme="pastel"] .bg-primary,
+[data-theme="pastel"] .bg-secondary,
+[data-theme="pastel"] .bg-accent,
+[data-theme="pastel"] .bg-accent-dark {
+    color: #ffffff !important;
+}
+
+/* Text on colored backgrounds - forest theme */
+[data-theme="forest"] .bg-primary,
+[data-theme="forest"] .bg-secondary,
+[data-theme="forest"] .bg-accent,
+[data-theme="forest"] .bg-accent-dark {
+    color: #ffffff !important;
+}
+
+/* Text on colored backgrounds - coastal theme */
+[data-theme="coastal"] .bg-primary,
+[data-theme="coastal"] .bg-secondary,
+[data-theme="coastal"] .bg-accent,
+[data-theme="coastal"] .bg-accent-dark {
+    color: #ffffff !important;
+}
+
+/* Default theme colored backgrounds - ensure text contrast */
+.bg-primary,
+.bg-secondary,
+.bg-accent,
+.bg-accent-dark {
+    color: #5c6036 !important;
+}
+
+/* Re-override text inside containers with bg colors - nature theme */
+[data-theme="nature"] .bg-primary *,
+[data-theme="nature"] .bg-secondary *,
+[data-theme="nature"] .bg-accent *,
+[data-theme="nature"] .bg-accent-dark * {
+    color: #ffffff !important;
+}
+
+/* Re-override text inside containers with bg colors */
+[data-theme="pastel"] .bg-primary *,
+[data-theme="pastel"] .bg-secondary *,
+[data-theme="pastel"] .bg-accent *,
+[data-theme="pastel"] .bg-accent-dark * {
+    color: #ffffff !important;
+}
+
+/* Re-override text inside containers with bg colors - forest theme */
+[data-theme="forest"] .bg-primary *,
+[data-theme="forest"] .bg-secondary *,
+[data-theme="forest"] .bg-accent *,
+[data-theme="forest"] .bg-accent-dark * {
+    color: #ffffff !important;
+}
+
+/* Re-override text inside containers with bg colors - coastal theme */
+[data-theme="coastal"] .bg-primary *,
+[data-theme="coastal"] .bg-secondary *,
+[data-theme="coastal"] .bg-accent *,
+[data-theme="coastal"] .bg-accent-dark * {
+    color: #ffffff !important;
+}
+
+/* Exclude buttons and elements with background colors - nature theme */
+[data-theme="nature"] .bg-primary .bg-background *,
+[data-theme="nature"] .bg-secondary .bg-background *,
+[data-theme="nature"] .bg-accent .bg-background *,
+[data-theme="nature"] .bg-accent-dark .bg-background * {
+    color: var(--primary-color) !important;
+}
+
+/* Exclude buttons and elements with background colors from above */
+[data-theme="pastel"] .bg-primary .bg-background *,
+[data-theme="pastel"] .bg-secondary .bg-background *,
+[data-theme="pastel"] .bg-accent .bg-background *,
+[data-theme="pastel"] .bg-accent-dark .bg-background * {
+    color: #000000 !important;
+}
+
+/* Exclude buttons and elements with background colors - forest theme */
+[data-theme="forest"] .bg-primary .bg-background *,
+[data-theme="forest"] .bg-secondary .bg-background *,
+[data-theme="forest"] .bg-accent .bg-background *,
+[data-theme="forest"] .bg-accent-dark .bg-background * {
+    color: var(--primary-color) !important;
+}
+
+/* Exclude buttons and elements with background colors - coastal theme */
+[data-theme="coastal"] .bg-primary .bg-background *,
+[data-theme="coastal"] .bg-secondary .bg-background *,
+[data-theme="coastal"] .bg-accent .bg-background *,
+[data-theme="coastal"] .bg-accent-dark .bg-background * {
+    color: var(--primary-color) !important;
+}
+
+/* Navigation text color - nature theme */
+[data-theme="nature"] nav a {
+    color: var(--primary-color) !important;
+}
+
+/* Navigation text color */
+[data-theme="pastel"] nav a {
+    color: #000000 !important;
+}
+
+/* Navigation text color - forest theme */
+[data-theme="forest"] nav a {
+    color: var(--primary-color) !important;
+}
+
+/* Navigation text color - coastal theme */
+[data-theme="coastal"] nav a {
+    color: var(--primary-color) !important;
+}
+
+/* Default navigation text */
+nav a {
+    color: #5c6036 !important;
+}
+
+/* Footer text - nature theme */
+[data-theme="nature"] footer a,
+[data-theme="nature"] footer span,
+[data-theme="nature"] footer div {
+    color: var(--primary-color) !important;
+}
+
+/* Footer text */
+[data-theme="pastel"] footer a,
+[data-theme="pastel"] footer span,
+[data-theme="pastel"] footer div {
+    color: #000000 !important;
+}
+
+/* Footer text - forest theme */
+[data-theme="forest"] footer a,
+[data-theme="forest"] footer span,
+[data-theme="forest"] footer div {
+    color: var(--primary-color) !important;
+}
+
+/* Footer text - coastal theme */
+[data-theme="coastal"] footer a,
+[data-theme="coastal"] footer span,
+[data-theme="coastal"] footer div {
+    color: var(--primary-color) !important;
+}
+
+/* Default footer text */
+footer a,
+footer span,
+footer div {
+    color: #5c6036 !important;
+}
+
+/* Keep the consultation button and CTA buttons visible - nature theme */
+[data-theme="nature"] a.inline-block,
+[data-theme="nature"] .cta a,
+[data-theme="nature"] [href="/contact"].bg-secondary,
+[data-theme="nature"] button.bg-secondary {
+    color: #ffffff !important;
+}
+
+/* Keep the consultation button and CTA buttons visible */
+[data-theme="pastel"] a.inline-block,
+[data-theme="pastel"] .cta a,
+[data-theme="pastel"] [href="/contact"].bg-secondary,
+[data-theme="pastel"] button.bg-secondary {
+    color: #000000 !important;
+}
+
+/* Keep the consultation button and CTA buttons visible - forest theme */
+[data-theme="forest"] a.inline-block,
+[data-theme="forest"] .cta a,
+[data-theme="forest"] [href="/contact"].bg-secondary,
+[data-theme="forest"] button.bg-secondary {
+    color: #ffffff !important;
+}
+
+/* Keep the consultation button and CTA buttons visible - coastal theme */
+[data-theme="coastal"] a.inline-block,
+[data-theme="coastal"] .cta a,
+[data-theme="coastal"] [href="/contact"].bg-secondary,
+[data-theme="coastal"] button.bg-secondary {
+    color: #ffffff !important;
+}
+
+/* Default consultation button and CTA buttons */
+a.inline-block,
+.cta a,
+[href="/contact"].bg-secondary,
+button.bg-secondary {
+    color: #5c6036 !important;
+}
+
+/* Style for theme toggle buttons - nature theme */
+[data-theme="nature"] #theme-toggle,
+[data-theme="nature"] #theme-toggle-mobile {
+    color: var(--accent-dark) !important;
+}
+
+[data-theme="nature"] #theme-toggle span,
+[data-theme="nature"] #theme-toggle-mobile span {
+    color: var(--accent-dark) !important;
+}
+
+/* Style for theme toggle buttons - keep them visible */
+[data-theme="pastel"] #theme-toggle,
+[data-theme="pastel"] #theme-toggle-mobile {
+    color: var(--accent-dark) !important;
+}
+
+[data-theme="pastel"] #theme-toggle span,
+[data-theme="pastel"] #theme-toggle-mobile span {
+    color: var(--accent-dark) !important;
+}
+
+/* Style for theme toggle buttons - forest theme */
+[data-theme="forest"] #theme-toggle,
+[data-theme="forest"] #theme-toggle-mobile {
+    color: var(--accent-dark) !important;
+}
+
+[data-theme="forest"] #theme-toggle span,
+[data-theme="forest"] #theme-toggle-mobile span {
+    color: var(--accent-dark) !important;
+}
+
+/* Style for theme toggle buttons - coastal theme */
+[data-theme="coastal"] #theme-toggle,
+[data-theme="coastal"] #theme-toggle-mobile {
+    color: var(--accent-dark) !important;
+}
+
+[data-theme="coastal"] #theme-toggle span,
+[data-theme="coastal"] #theme-toggle-mobile span {
+    color: var(--accent-dark) !important;
+}
+
+/* Default theme toggle button */
+#theme-toggle,
+#theme-toggle-mobile {
+    color: var(--accent-dark) !important;
+}
+
+#theme-toggle span,
+#theme-toggle-mobile span {
+    color: var(--accent-dark) !important;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #283618;
+    color: var(--primary-color);
     background-color: var(--background-color);
 }
 
@@ -84,4 +614,23 @@ blockquote {
     width: 1.25rem;
     height: 1.25rem;
     opacity: 0.7;
+}
+
+/* Fix major layout container */
+header nav.max-w-7xl {
+    width: 100% !important;
+    padding: 0 1rem !important;
+}
+
+header .flex.items-center {
+    flex: 1 !important;
+    justify-content: flex-start !important;
+    margin-right: 2rem !important;
+}
+
+/* Fix navigation item positioning */
+header .hidden.ml-10.space-x-8.lg\:block a {
+    display: inline-block !important;
+    margin-right: 1.5rem !important;
+    white-space: nowrap !important;
 }

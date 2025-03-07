@@ -17,7 +17,7 @@ const navItems: NavItem[] = [
 <header class="bg-accent-dark">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
     <div
-      class="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none"
+      class="w-full py-6 flex items-center justify-between border-b border-accent-dark lg:border-none"
     >
       <div class="flex items-center">
         <a href="/" class="flex-shrink-0 mr-1 flex items-center">
@@ -58,6 +58,27 @@ const navItems: NavItem[] = [
         </div>
       </div>
       <div class="ml-10 space-x-4">
+        <button
+          id="theme-toggle"
+          class="inline-block bg-background py-2 px-4 border border-transparent rounded-md text-base font-medium text-accent-dark hover:bg-background/90"
+          aria-label="Toggle pastel theme"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 inline-block mr-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+            ></path>
+          </svg>
+          <span id="theme-toggle-text">Pastel Theme</span>
+        </button>
         <a
           href="/contact"
           class="inline-block bg-secondary py-2 px-4 border border-transparent rounded-md text-base font-medium text-background hover:bg-primary"
@@ -121,6 +142,26 @@ const navItems: NavItem[] = [
             </a>
           ))
         }
+        <button
+          id="theme-toggle-mobile"
+          class="w-full text-left block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-background hover:border-primary hover:text-primary"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 inline-block mr-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+            ></path>
+          </svg>
+          <span id="theme-toggle-mobile-text">Pastel Theme</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -139,5 +180,82 @@ const navItems: NavItem[] = [
       iconOpen?.classList.toggle("hidden");
       iconClosed?.classList.toggle("hidden");
     });
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+    const themeToggleText = document.getElementById("theme-toggle-text");
+    const themeToggleMobileText = document.getElementById(
+      "theme-toggle-mobile-text",
+    );
+
+    // Theme names map
+    const themeNames: Record<string, string> = {
+      default: "Soft Nature Theme",
+      nature: "Nature Theme",
+      pastel: "Pastel Theme",
+      forest: "Forest Theme",
+      coastal: "Coastal Theme",
+    };
+
+    // Set button text to current theme name
+    const updateThemeText = (themeName: string) => {
+      const displayName = themeNames[themeName] || themeNames["default"];
+      if (themeToggleText) themeToggleText.textContent = displayName;
+      if (themeToggleMobileText)
+        themeToggleMobileText.textContent = displayName;
+    };
+
+    const cycleThemes = () => {
+      const root = document.documentElement;
+      const currentTheme = root.getAttribute("data-theme") || "default";
+
+      // Cycle through themes: default -> nature -> pastel -> forest -> coastal -> default
+      let nextTheme;
+      switch (currentTheme) {
+        case "default":
+          nextTheme = "nature";
+          break;
+        case "nature":
+          nextTheme = "pastel";
+          break;
+        case "pastel":
+          nextTheme = "forest";
+          break;
+        case "forest":
+          nextTheme = "coastal";
+          break;
+        case "coastal":
+          nextTheme = "default";
+          break;
+        default:
+          nextTheme = "nature";
+      }
+
+      // Apply the next theme
+      if (nextTheme === "default") {
+        root.removeAttribute("data-theme");
+      } else {
+        root.setAttribute("data-theme", nextTheme);
+      }
+
+      // Save to localStorage
+      localStorage.setItem("theme", nextTheme);
+
+      // Update button text
+      updateThemeText(nextTheme);
+    };
+
+    // Check for saved theme preference or use default
+    const savedTheme = localStorage.getItem("theme") || "default";
+    if (savedTheme !== "default") {
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    }
+
+    // Initialize theme text
+    updateThemeText(savedTheme);
+
+    themeToggle?.addEventListener("click", cycleThemes);
+    themeToggleMobile?.addEventListener("click", cycleThemes);
   });
 </script>
