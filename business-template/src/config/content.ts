@@ -137,28 +137,28 @@ export const aboutContent = {
         subtitle: "Meet the local experts behind MoaWeb NZ",
         members: [
             {
-                name: "Mike Wilson",
-                role: "Founder & Lead Developer",
-                bio: "With over 15 years of experience in web development, Mike leads MoaWeb NZ with a focus on creating practical, effective websites for local businesses.",
-                image: "https://placehold.co/300x300?text=Mike+Wilson"
+                name: "Hammadi Husaini",
+                role: "Chief Technology Officer (CTO)",
+                bio: "Our Full-Stack Developer brings expertise in front-end and back-end technologies, ensuring seamless, high-performing websites. With a background in software architecture and a passion for problem-solving, they turn ideas into reality with cutting-edge web solutions.",
+                image: "/images/Hammadi.jpg"
             },
             {
-                name: "Sarah Thompson",
-                role: "Design Director",
-                bio: "Sarah combines creative vision with user experience expertise to craft beautiful, functional designs that help businesses stand out online.",
-                image: "https://placehold.co/300x300?text=Sarah+Thompson"
+                name: "Fera Allisha",
+                role: "Creative Director",
+                bio: "Leading the design vision, our Creative Director blends aesthetics with user experience. With years of experience in branding, UI/UX, and digital storytelling, they craft visually compelling and intuitive designs that leave a lasting impact.",
+                image: "/images/Fera.jpg"
             },
             {
-                name: "James Chen",
-                role: "Technical Lead",
-                bio: "James specializes in e-commerce development and custom web applications that solve real business problems.",
-                image: "https://placehold.co/300x300?text=James+Chen"
+                name: "Tarmo Kivimäki",
+                role: "Director of Operations",
+                bio: "Our Head Project Manager ensures projects are delivered on time and within scope. With a strategic mindset and expertise in agile methodologies, they coordinate teams, manage client expectations, and keep everything running smoothly.",
+                image: "/images/Tarmo.jpg"
             },
             {
-                name: "Emma Roberts",
-                role: "Client Success Manager",
-                bio: "Emma ensures that every client receives exceptional service and ongoing support throughout their journey with MoaWeb NZ.",
-                image: "https://placehold.co/300x300?text=Emma+Roberts"
+                name: "Haidah Karim",
+                role: "Director of Business Development",
+                bio: "As the Sales and Deployment Officer, this role bridges the gap between clients and execution. With strong industry knowledge and negotiation skills, they drive growth, oversee deployments, and ensure seamless client onboarding.",
+                image: "/images/Haidah.jpg"
             }
         ]
     }
@@ -273,7 +273,7 @@ export const servicesContent = {
         questions: [
             {
                 question: "How long does it take to build a website?",
-                answer: "A standard business website typically take 1-2 weeks to complete, while e-commerce sites may take 2-4 weeks and custom applications may take 3-8 weeks depending on complexity."
+                answer: "A standard business website typically take 1-2 weeks to complete, while e-commerce sites may take 2-4 weeks and custom applications may take 4-8 weeks depending on complexity."
             },
             {
                 question: "Do I own my website?",
@@ -283,10 +283,7 @@ export const servicesContent = {
                 question: "What's included in the monthly fee?",
                 answer: "Your monthly fee covers hosting, security updates, technical support, content updates, and regular performance monitoring to ensure your website continues to perform at its best."
             },
-            {
-                question: "Can I update the website myself?",
-                answer: "Yes! We provide a user-friendly content management system and training so you can make basic updates. For more complex changes, our team is always available to help."
-            },
+
             {
                 question: "Are there any hidden costs?",
                 answer: "No hidden costs. The setup fee and monthly fee cover everything described in your chosen plan. Additional services or major redesigns may incur extra costs, but these would always be quoted and approved in advance."

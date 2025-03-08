@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+import { businessConfig } from "../config/branding";
+---
+
+<Layout title="Terms & Conditions">
+	<Section background="primary" paddingY="lg">
+		<Container>
+			<div class="text-center">
+				<h1
+					class="text-4xl font-bold tracking-tight sm:text-5xl mb-6 text-background"
+				>
+					Terms & Conditions
+				</h1>
+				<p class="text-xl mb-8 text-accent max-w-3xl mx-auto">
+					Please read these terms carefully before using our services
+				</p>
+			</div>
+		</Container>
+	</Section>
+
+	<Section background="white" paddingY="lg">
+		<Container size="md">
+			<div class="prose prose-lg mx-auto">
+				<p class="lead">
+					Last Updated: March 8, 2024
+				</p>
+
+				<h2>1. Acceptance of Terms</h2>
+				<p>
+					By accessing and using the services provided by {businessConfig.name} ("we," "our," or "us"), you agree to be bound by these Terms and Conditions ("Terms"), our Privacy Policy, and any additional terms and conditions that may apply to specific sections of our website or services.
+				</p>
+
+				<h2>2. Services</h2>
+				<p>
+					{businessConfig.name} provides web development, design, hosting, and related services for businesses in New Zealand. We reserve the right to modify, suspend, or discontinue any part of our services at any time without notice or liability.
+				</p>
+
+				<h2>3. Client Responsibilities</h2>
+				<p>
+					As a client, you agree to:
+				</p>
+				<ul>
+					<li>Provide accurate and complete information for your project</li>
+					<li>Review and approve work in a timely manner</li>
+					<li>Pay all fees as agreed upon in your service agreement</li>
+					<li>Ensure you have the legal right to use any content you provide to us</li>
+					<li>Comply with all applicable laws and regulations</li>
+				</ul>
+
+				<h2>4. Our Intellectual Property</h2>
+				<p>
+					Unless otherwise stated, we own or license all intellectual property rights in the website and services. This includes, but is not limited to, design elements, text, graphics, software, code, and content created by us.
+				</p>
+
+				<h2>5. Your Content</h2>
+				<p>
+					You retain ownership of all content you provide to us. By providing content, you grant us a non-exclusive, worldwide, royalty-free license to use, reproduce, adapt, publish, and process that information for the purpose of providing our services to you.
+				</p>
+
+				<h2>6. Payment Terms</h2>
+				<p>
+					Payment terms are specified in your service agreement or quotation. Generally:
+				</p>
+				<ul>
+					<li>Initial deposits are non-refundable</li>
+					<li>Monthly subscription fees are charged in advance</li>
+					<li>Late payments may result in service suspension</li>
+					<li>All quoted prices are in New Zealand Dollars and exclusive of GST unless otherwise specified</li>
+				</ul>
+
+				<h2>7. Limitation of Liability</h2>
+				<p>
+					To the maximum extent permitted by law, {businessConfig.name} will not be liable for any direct, indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use our services, or for the cost of procurement of substitute services.
+				</p>
+
+				<h2>8. Indemnification</h2>
+				<p>
+					You agree to indemnify and hold harmless {businessConfig.name}, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses arising out of or in any way connected with your use of our services or violation of these Terms.
+				</p>
+
+				<h2>9. Termination</h2>
+				<p>
+					We may terminate or suspend your access to our services immediately, without prior notice or liability, for any reason, including breach of these Terms. Upon termination, your right to use the services will immediately cease.
+				</p>
+
+				<h2>10. Governing Law</h2>
+				<p>
+					These Terms shall be governed by and construed in accordance with the laws of New Zealand, without regard to its conflict of law provisions.
+				</p>
+
+				<h2>11. Changes to Terms</h2>
+				<p>
+					We reserve the right to modify these Terms at any time. We will notify you of significant changes by posting an updated version on our website. Your continued use of our services after such modifications will constitute your acknowledgment and acceptance of the modified Terms.
+				</p>
+
+				<h2>12. Contact Us</h2>
+				<p>
+					If you have any questions about these Terms, please contact us at:
+				</p>
+				<p>
+					Email: {businessConfig.contact.email}<br />
+					Phone: {businessConfig.contact.phone}<br />
+					Address: {businessConfig.contact.address.street}, {businessConfig.contact.address.city}, {businessConfig.contact.address.zip}, {businessConfig.contact.address.country}
+				</p>
+			</div>
+		</Container>
+	</Section>
+</Layout> 

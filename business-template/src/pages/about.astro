@@ -97,12 +97,12 @@ import Button from "../components/Button.astro";
 	</Section>
 
 	<!-- Team Section -->
-	<Section background="secondary" paddingY="lg">
+	<Section background="white" paddingY="lg">
 		<Container>
 			<SectionHeading
 				title={aboutContent.team.title}
 				subtitle={aboutContent.team.subtitle}
-				class="text-accent"
+				class="text-primary"
 			/>
 
 			<div
@@ -110,7 +110,7 @@ import Button from "../components/Button.astro";
 			>
 				{
 					aboutContent.team.members.map((member) => (
-						<Card shadow="md" class="text-center bg-white">
+						<Card shadow="md" class="text-center bg-white border border-gray-200">
 							<img
 								src={member.image}
 								alt={member.name}

@@ -1,0 +1,108 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import Container from "../components/Container.astro";
+import { businessConfig } from "../config/branding";
+---
+
+<Layout title="Privacy Policy">
+	<Section background="primary" paddingY="lg">
+		<Container>
+			<div class="text-center">
+				<h1
+					class="text-4xl font-bold tracking-tight sm:text-5xl mb-6 text-background"
+				>
+					Privacy Policy
+				</h1>
+				<p class="text-xl mb-8 text-accent max-w-3xl mx-auto">
+					How we collect, use, and protect your information
+				</p>
+			</div>
+		</Container>
+	</Section>
+
+	<Section background="white" paddingY="lg">
+		<Container size="md">
+			<div class="prose prose-lg mx-auto">
+				<p class="lead">
+					Last Updated: March 8, 2024
+				</p>
+
+				<h2>1. Introduction</h2>
+				<p>
+					{businessConfig.name} ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+				</p>
+
+				<h2>2. Information We Collect</h2>
+				<p>
+					We may collect information about you in various ways, including:
+				</p>
+				<ul>
+					<li><strong>Personal Information:</strong> Name, email address, phone number, and business information when you contact us or sign up for our services.</li>
+					<li><strong>Usage Data:</strong> Information about how you use our website, including IP address, browser type, pages visited, and time spent on the site.</li>
+					<li><strong>Cookies and Tracking Technologies:</strong> We use cookies and similar technologies to enhance your experience on our website, analyze usage patterns, and personalize content.</li>
+				</ul>
+
+				<h2>3. How We Use Your Information</h2>
+				<p>
+					We may use the information we collect about you to:
+				</p>
+				<ul>
+					<li>Provide, maintain, and improve our services</li>
+					<li>Process and complete transactions</li>
+					<li>Send you technical notices, updates, and support messages</li>
+					<li>Respond to your comments, questions, and requests</li>
+					<li>Develop new products and services</li>
+					<li>Monitor and analyze trends, usage, and activities</li>
+					<li>Detect, investigate, and prevent fraudulent transactions and other illegal activities</li>
+					<li>Protect the rights and property of {businessConfig.name} and others</li>
+				</ul>
+
+				<h2>4. Sharing of Your Information</h2>
+				<p>
+					We do not sell, trade, or otherwise transfer your personal information to outside parties except in the following circumstances:
+				</p>
+				<ul>
+					<li>With third-party service providers who assist us in operating our website and conducting our business</li>
+					<li>When required by law or to respond to legal process</li>
+					<li>To protect the rights, property, or safety of {businessConfig.name}, our customers, or others</li>
+					<li>In connection with a business transition such as a merger, acquisition, or sale of assets</li>
+				</ul>
+
+				<h2>5. Data Security</h2>
+				<p>
+					We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
+				</p>
+
+				<h2>6. Your Rights</h2>
+				<p>
+					You have the right to:
+				</p>
+				<ul>
+					<li>Access, update, or delete your personal information</li>
+					<li>Object to the processing of your personal information</li>
+					<li>Request a copy of your personal information</li>
+					<li>Withdraw your consent at any time</li>
+				</ul>
+				<p>
+					To exercise these rights, please contact us at {businessConfig.contact.email}.
+				</p>
+
+				<h2>7. Changes to This Privacy Policy</h2>
+				<p>
+					We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+				</p>
+
+				<h2>8. Contact Us</h2>
+				<p>
+					If you have any questions about this Privacy Policy, please contact us at:
+				</p>
+				<p>
+					Email: {businessConfig.contact.email}<br />
+					Phone: {businessConfig.contact.phone}<br />
+					Address: {businessConfig.contact.address.street}, {businessConfig.contact.address.city}, {businessConfig.contact.address.zip}, {businessConfig.contact.address.country}
+				</p>
+			</div>
+		</Container>
+	</Section>
+</Layout> 

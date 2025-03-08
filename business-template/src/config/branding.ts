@@ -47,10 +47,10 @@ export const businessConfig: BusinessConfig = {
         email: "hello@MoaWebnz.co.nz",
         phone: "03 555 1234",
         address: {
-            street: "123 Cathedral Square",
+            street: "Hutcheson Street",
             city: "Christchurch",
             state: "Canterbury",
-            zip: "8011",
+            zip: "8023",
             country: "New Zealand",
         },
     },
