@@ -14,26 +14,26 @@ const navItems: NavItem[] = [
 ];
 ---
 
-<header class="bg-accent-dark">
+<header class="bg-accent-dark relative z-30">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
     <div
-      class="w-full py-6 flex items-center justify-between border-b border-accent-dark lg:border-none"
+      class="w-full py-4 md:py-6 flex items-center justify-between border-b border-accent-dark lg:border-none"
     >
       <div class="flex items-center">
         <a href="/" class="flex-shrink-0 mr-1 flex items-center">
           <img
             src="/images/header_logo_white.png"
             alt={businessConfig.name}
-            class="h-16 w-auto object-contain theme-logo-white"
+            class="h-10 md:h-16 w-auto object-contain theme-logo-white"
           />
           <img
             src="/images/header_logo_black.png"
             alt={businessConfig.name}
-            class="h-16 w-auto object-contain theme-logo-black"
+            class="h-10 md:h-16 w-auto object-contain theme-logo-black"
           />
           <span class="sr-only">{businessConfig.name}</span>
         </a>
-        <div class="hidden ml-10 space-x-8 lg:block">
+        <div class="hidden ml-10 space-x-4 lg:flex lg:space-x-8">
           {
             navItems.map((item) => (
               <a
@@ -46,11 +46,11 @@ const navItems: NavItem[] = [
           }
         </div>
       </div>
-      <div class="ml-10 space-x-4">
+      <div class="hidden lg:flex items-center space-x-4">
         <button
           id="theme-toggle"
           class="inline-block bg-background py-2 px-4 border border-transparent rounded-md text-base font-medium text-accent-dark hover:bg-background/90"
-          aria-label="Toggle pastel theme"
+          aria-label="Toggle theme"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -77,80 +77,88 @@ const navItems: NavItem[] = [
       </div>
 
       <!-- Mobile menu button -->
-      <div class="lg:hidden flex items-center">
-        <button
-          type="button"
-          class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-background focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Open main menu</span>
-          <!-- Icon when menu is closed -->
-          <svg
-            class="block h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
+      <div class="flex items-center lg:hidden">
+        <div class="flex items-center space-x-2">
+          <button
+            id="theme-toggle-small"
+            class="inline-flex items-center justify-center p-2 rounded-md bg-background text-accent-dark"
+            aria-label="Toggle theme"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <!-- Icon when menu is open -->
-          <svg
-            class="hidden h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+              ></path>
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-white hover:text-gray-200 hover:bg-accent-dark/80 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            aria-expanded="false"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon when menu is closed -->
+            <svg
+              class="block h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <!-- Icon when menu is open -->
+            <svg
+              class="hidden h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
 
     <!-- Mobile menu, show/hide based on menu state -->
     <div class="mobile-menu hidden lg:hidden">
-      <div class="pt-2 pb-3 space-y-1">
+      <div class="py-3 space-y-1">
         {
           navItems.map((item) => (
             <a
               href={item.href}
-              class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-background hover:border-primary hover:text-primary"
+              class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-white hover:bg-background hover:border-primary hover:text-primary"
             >
               {item.name}
             </a>
           ))
         }
-        <button
-          id="theme-toggle-mobile"
-          class="w-full text-left block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-background hover:border-primary hover:text-primary"
+        <a
+          href="/contact"
+          class="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-bold text-white bg-secondary hover:bg-primary hover:border-primary"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5 inline-block mr-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-            ></path>
-          </svg>
-          <span id="theme-toggle-mobile-text">Pastel Theme</span>
-        </button>
+          Free Consultation
+        </a>
       </div>
     </div>
   </nav>
@@ -172,6 +180,7 @@ const navItems: NavItem[] = [
 
     // Theme toggle functionality
     const themeToggle = document.getElementById("theme-toggle");
+    const themeToggleSmall = document.getElementById("theme-toggle-small");
     const themeToggleMobile = document.getElementById("theme-toggle-mobile");
     const themeToggleText = document.getElementById("theme-toggle-text");
     const themeToggleMobileText = document.getElementById(
@@ -179,8 +188,7 @@ const navItems: NavItem[] = [
     );
 
     // Theme names map
-    const themeNames: Record<string, string> = {
-      default: "Soft Nature Theme",
+    const themeNames = {
       nature: "Nature Theme",
       pastel: "Pastel Theme",
       forest: "Forest Theme",
@@ -189,7 +197,9 @@ const navItems: NavItem[] = [
 
     // Set button text to current theme name
     const updateThemeText = (themeName: string) => {
-      const displayName = themeNames[themeName] || themeNames["default"];
+      const displayName =
+        themeNames[themeName as keyof typeof themeNames] ||
+        themeNames["nature"];
       if (themeToggleText) themeToggleText.textContent = displayName;
       if (themeToggleMobileText)
         themeToggleMobileText.textContent = displayName;
@@ -197,14 +207,11 @@ const navItems: NavItem[] = [
 
     const cycleThemes = () => {
       const root = document.documentElement;
-      const currentTheme = root.getAttribute("data-theme") || "default";
+      const currentTheme = root.getAttribute("data-theme") || "nature";
 
-      // Cycle through themes: default -> nature -> pastel -> forest -> coastal -> default
+      // Cycle through themes: nature -> pastel -> forest -> coastal -> nature
       let nextTheme;
       switch (currentTheme) {
-        case "default":
-          nextTheme = "nature";
-          break;
         case "nature":
           nextTheme = "pastel";
           break;
@@ -215,18 +222,14 @@ const navItems: NavItem[] = [
           nextTheme = "coastal";
           break;
         case "coastal":
-          nextTheme = "default";
+          nextTheme = "nature";
           break;
         default:
           nextTheme = "nature";
       }
 
       // Apply the next theme
-      if (nextTheme === "default") {
-        root.removeAttribute("data-theme");
-      } else {
-        root.setAttribute("data-theme", nextTheme);
-      }
+      root.setAttribute("data-theme", nextTheme);
 
       // Save to localStorage
       localStorage.setItem("theme", nextTheme);
@@ -235,16 +238,15 @@ const navItems: NavItem[] = [
       updateThemeText(nextTheme);
     };
 
-    // Check for saved theme preference or use default
-    const savedTheme = localStorage.getItem("theme") || "default";
-    if (savedTheme !== "default") {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-    }
+    // Check for saved theme preference or use nature as default
+    const savedTheme = localStorage.getItem("theme") || "nature";
+    document.documentElement.setAttribute("data-theme", savedTheme);
 
     // Initialize theme text
     updateThemeText(savedTheme);
 
     themeToggle?.addEventListener("click", cycleThemes);
+    themeToggleSmall?.addEventListener("click", cycleThemes);
     themeToggleMobile?.addEventListener("click", cycleThemes);
   });
 </script>

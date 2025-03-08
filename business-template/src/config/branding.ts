@@ -55,8 +55,8 @@ export const businessConfig: BusinessConfig = {
         },
     },
     hours: [
-        { day: "Monday-Friday", hours: "9:00 AM - 5:30 PM" },
-        { day: "Saturday", hours: "By appointment" },
+        { day: "Monday-Friday", hours: "5:30 PM - 9:00 PM" },
+        { day: "Saturday", hours: "Closed" },
         { day: "Sunday", hours: "Closed" },
     ],
     socialMedia: {

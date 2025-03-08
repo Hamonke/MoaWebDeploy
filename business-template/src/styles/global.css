@@ -4,35 +4,35 @@
 
 /* Custom styles */
 :root {
-    /* Soft Nature Theme (Default) */
-    --primary-color: #ccd5ae;
-    /* Light sage/olive */
-    --primary-color-rgb: 204, 213, 174;
+    /* Nature Theme (Default) */
+    --primary-color: #283618;
+    /* Dark green */
+    --primary-color-rgb: 40, 54, 24;
 
-    --secondary-color: #e9edc9;
-    /* Very pale green */
-    --secondary-color-rgb: 233, 237, 201;
+    --secondary-color: #606c38;
+    /* Light green */
+    --secondary-color-rgb: 96, 108, 56;
 
-    --accent-color: #fefae0;
+    --accent-color: #dda15e;
+    /* Light brown */
+    --accent-color-rgb: 221, 161, 94;
+
+    --background-color: #fefae0;
     /* Cream */
-    --accent-color-rgb: 254, 250, 224;
+    --background-color-rgb: 254, 250, 224;
 
-    --background-color: #faedcd;
-    /* Light peach */
-    --background-color-rgb: 250, 237, 205;
-
-    --accent-dark: #d4a373;
-    /* Tan/light brown */
-    --accent-dark-rgb: 212, 163, 115;
+    --accent-dark: #bc6c25;
+    /* Dark brown */
+    --accent-dark-rgb: 188, 108, 37;
 
     /* Set text color for default theme to ensure visibility */
-    --text-color: #5c6036;
+    --text-color: #283618;
 }
 
 /* Ensure icon circles in cards display correctly */
 .bg-secondary\/20.rounded-full,
 div[class*="bg-secondary/20"].rounded-full {
-    background-color: rgba(var(--secondary-color-rgb, 233, 237, 201), 0.2) !important;
+    background-color: rgba(var(--secondary-color-rgb, 96, 108, 56), 0.2) !important;
     border-radius: 9999px !important;
     border: 2px solid var(--secondary-color) !important;
 }
@@ -53,7 +53,7 @@ div[class*="bg-secondary/20"].rounded-full {
 }
 
 .theme-logo-black {
-    display: block;
+    display: none;
 }
 
 /* Show white logo in dark header/footer */
@@ -68,13 +68,13 @@ footer.bg-primary .theme-logo-black {
 }
 
 /* Theme-specific logo visibility */
-[data-theme="nature"] .theme-logo-white,
+.theme-logo-white,
 [data-theme="forest"] .theme-logo-white,
 [data-theme="coastal"] .theme-logo-white {
     display: block;
 }
 
-[data-theme="nature"] .theme-logo-black,
+.theme-logo-black,
 [data-theme="forest"] .theme-logo-black,
 [data-theme="coastal"] .theme-logo-black {
     display: none;
@@ -88,8 +88,9 @@ footer.bg-primary .theme-logo-black {
     display: block;
 }
 
-/* Fix layout issues in Soft Nature theme */
-header .w-full.py-6.flex.items-center.justify-between {
+/* Fix layout issues in header */
+header .w-full.py-6.flex.items-center.justify-between,
+header .w-full.py-4.md\:py-6.flex.items-center.justify-between {
     display: flex !important;
     justify-content: space-between !important;
     flex-wrap: nowrap !important;
@@ -115,7 +116,8 @@ header .space-x-4>*+* {
     margin-left: 0 !important;
 }
 
-header .hidden.ml-10.space-x-8.lg\:block {
+header .hidden.ml-10.space-x-8.lg\:block,
+header .hidden.ml-10.space-x-4.lg\:flex.lg\:space-x-8 {
     display: block !important;
     white-space: nowrap !important;
 }
@@ -210,18 +212,7 @@ header a[href="/contact"].bg-secondary:hover {
 }
 
 /* Nature Theme Colors (was the default, now fifth theme) */
-[data-theme="nature"] {
-    --primary-color: #283618;
-    /* Dark green */
-    --secondary-color: #606c38;
-    /* Light green */
-    --accent-color: #dda15e;
-    /* Light brown */
-    --background-color: #fefae0;
-    /* Cream */
-    --accent-dark: #bc6c25;
-    /* Dark brown */
-}
+/* Removed [data-theme="nature"] declaration since Nature is now the default theme */
 
 /* Pastel Theme Colors */
 [data-theme="pastel"] {
@@ -276,13 +267,16 @@ header a[href="/contact"].bg-secondary:hover {
 
 /* Default text color for body to ensure visibility */
 body {
-    color: var(--text-color, #5c6036);
+    color: var(--text-color);
+    /* Use text-color variable for consistent contrast */
+    background-color: var(--background-color);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    /* Slightly heavier font weight for better readability */
 }
 
 /* Set text color for specific theme elements */
-[data-theme="nature"] body {
-    color: var(--primary-color);
-}
+/* Removed [data-theme="nature"] specific styles since those are now the defaults */
 
 /* Set text color to black for most elements in pastel theme */
 [data-theme="pastel"] body {
@@ -299,17 +293,17 @@ body {
     color: var(--primary-color);
 }
 
-/* Main headings and text - nature theme */
-[data-theme="nature"] h1,
-[data-theme="nature"] h2,
-[data-theme="nature"] h3,
-[data-theme="nature"] h4,
-[data-theme="nature"] h5,
-[data-theme="nature"] h6,
-[data-theme="nature"] p,
-[data-theme="nature"] .text-primary,
-[data-theme="nature"] .text-secondary,
-[data-theme="nature"] .text-accent {
+/* Main headings and text - default theme is now Nature theme */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+.text-primary,
+.text-secondary,
+.text-accent {
     color: var(--primary-color) !important;
 }
 
@@ -355,11 +349,11 @@ body {
     color: var(--primary-color) !important;
 }
 
-/* Text on colored backgrounds - nature theme */
-[data-theme="nature"] .bg-primary,
-[data-theme="nature"] .bg-secondary,
-[data-theme="nature"] .bg-accent,
-[data-theme="nature"] .bg-accent-dark {
+/* Text on colored backgrounds - default is now Nature theme */
+.bg-primary,
+.bg-secondary,
+.bg-accent,
+.bg-accent-dark {
     color: #ffffff !important;
 }
 
@@ -392,7 +386,7 @@ body {
 .bg-secondary,
 .bg-accent,
 .bg-accent-dark {
-    color: #5c6036 !important;
+    color: #ffffff !important;
 }
 
 /* Re-override text inside containers with bg colors - nature theme */
@@ -481,7 +475,7 @@ body {
 
 /* Default navigation text */
 nav a {
-    color: #5c6036 !important;
+    color: var(--primary-color) !important;
 }
 
 /* Footer text - nature theme */
@@ -516,7 +510,8 @@ nav a {
 footer a,
 footer span,
 footer div {
-    color: #5c6036 !important;
+    color: var(--primary-color) !important;
+    /* Darker for better contrast */
 }
 
 /* Keep the consultation button and CTA buttons visible - nature theme */
@@ -556,21 +551,11 @@ a.inline-block,
 .cta a,
 [href="/contact"].bg-secondary,
 button.bg-secondary {
-    color: #5c6036 !important;
+    color: #ffffff !important;
+    /* Darker for better contrast */
 }
 
-/* Style for theme toggle buttons - nature theme */
-[data-theme="nature"] #theme-toggle,
-[data-theme="nature"] #theme-toggle-mobile {
-    color: var(--accent-dark) !important;
-}
-
-[data-theme="nature"] #theme-toggle span,
-[data-theme="nature"] #theme-toggle-mobile span {
-    color: var(--accent-dark) !important;
-}
-
-/* Style for theme toggle buttons - keep them visible */
+/* Style for theme toggle buttons for other themes */
 [data-theme="pastel"] #theme-toggle,
 [data-theme="pastel"] #theme-toggle-mobile {
     color: var(--accent-dark) !important;
@@ -616,12 +601,6 @@ button.bg-secondary {
 
 html {
     scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--primary-color);
-    background-color: var(--background-color);
 }
 
 /* Typography improvements */
@@ -733,4 +712,344 @@ img {
     -webkit-backface-visibility: visible;
     -webkit-font-smoothing: antialiased;
     box-shadow: none;
+}
+
+/* Apply correct bg colors to buttons and elements with solid backgrounds */
+.bg-primary *,
+.bg-secondary *,
+.bg-accent *,
+.bg-accent-dark * {
+    color: #ffffff !important;
+}
+
+/* Exclude buttons and elements with background colors from above */
+.bg-primary .bg-background *,
+.bg-secondary .bg-background *,
+.bg-accent .bg-background *,
+.bg-accent-dark .bg-background * {
+    color: var(--primary-color) !important;
+}
+
+/* Apply correct bg colors to buttons and elements with solid backgrounds for specific themes */
+[data-theme="pastel"] .bg-primary *,
+[data-theme="pastel"] .bg-secondary *,
+[data-theme="pastel"] .bg-accent *,
+[data-theme="pastel"] .bg-accent-dark * {
+    color: #000000 !important;
+}
+
+/* Text on colored backgrounds - forest theme */
+[data-theme="forest"] .bg-primary *,
+[data-theme="forest"] .bg-secondary *,
+[data-theme="forest"] .bg-accent *,
+[data-theme="forest"] .bg-accent-dark * {
+    color: #ffffff !important;
+}
+
+/* Text on colored backgrounds - coastal theme */
+[data-theme="coastal"] .bg-primary *,
+[data-theme="coastal"] .bg-secondary *,
+[data-theme="coastal"] .bg-accent *,
+[data-theme="coastal"] .bg-accent-dark * {
+    color: #ffffff !important;
+}
+
+/* Exclude buttons and elements with background colors for other themes */
+[data-theme="pastel"] .bg-primary .bg-background *,
+[data-theme="pastel"] .bg-secondary .bg-background *,
+[data-theme="pastel"] .bg-accent .bg-background *,
+[data-theme="pastel"] .bg-accent-dark .bg-background * {
+    color: #000000 !important;
+}
+
+/* Forest theme background exclusions */
+[data-theme="forest"] .bg-primary .bg-background *,
+[data-theme="forest"] .bg-secondary .bg-background *,
+[data-theme="forest"] .bg-accent .bg-background *,
+[data-theme="forest"] .bg-accent-dark .bg-background * {
+    color: var(--primary-color) !important;
+}
+
+/* Coastal theme background exclusions */
+[data-theme="coastal"] .bg-primary .bg-background *,
+[data-theme="coastal"] .bg-secondary .bg-background *,
+[data-theme="coastal"] .bg-accent .bg-background *,
+[data-theme="coastal"] .bg-accent-dark .bg-background * {
+    color: var(--primary-color) !important;
+}
+
+/* Theme-specific navigation text color */
+[data-theme="pastel"] nav a {
+    color: #000000 !important;
+}
+
+/* Navigation text color - forest theme */
+[data-theme="forest"] nav a {
+    color: var(--primary-color) !important;
+}
+
+/* Navigation text color - coastal theme */
+[data-theme="coastal"] nav a {
+    color: var(--primary-color) !important;
+}
+
+/* Theme-specific footer text */
+[data-theme="pastel"] footer a,
+[data-theme="pastel"] footer span,
+[data-theme="pastel"] footer div {
+    color: #000000 !important;
+}
+
+/* Footer text - forest theme */
+[data-theme="forest"] footer a,
+[data-theme="forest"] footer span,
+[data-theme="forest"] footer div {
+    color: var(--primary-color) !important;
+}
+
+/* Footer text - coastal theme */
+[data-theme="coastal"] footer a,
+[data-theme="coastal"] footer span,
+[data-theme="coastal"] footer div {
+    color: var(--primary-color) !important;
+}
+
+/* Theme-specific button text */
+[data-theme="pastel"] a.inline-block,
+[data-theme="pastel"] .cta a,
+[data-theme="pastel"] [href="/contact"].bg-secondary,
+[data-theme="pastel"] button.bg-secondary {
+    color: #000000 !important;
+}
+
+/* Keep the consultation button and CTA buttons visible - forest theme */
+[data-theme="forest"] a.inline-block,
+[data-theme="forest"] .cta a,
+[data-theme="forest"] [href="/contact"].bg-secondary,
+[data-theme="forest"] button.bg-secondary {
+    color: #ffffff !important;
+}
+
+/* Keep the consultation button and CTA buttons visible - coastal theme */
+[data-theme="coastal"] a.inline-block,
+[data-theme="coastal"] .cta a,
+[data-theme="coastal"] [href="/contact"].bg-secondary,
+[data-theme="coastal"] button.bg-secondary {
+    color: #ffffff !important;
+}
+
+/* Fix text color on cream backgrounds in Nature theme */
+.bg-cream,
+section.bg-cream,
+[data-theme="nature"] .bg-cream {
+    color: var(--primary-color) !important;
+}
+
+.bg-cream *,
+section.bg-cream *,
+[data-theme="nature"] .bg-cream * {
+    color: var(--primary-color) !important;
+}
+
+/* Override specific text classes within cream backgrounds that need to maintain their colors */
+.bg-cream .text-secondary,
+section.bg-cream .text-secondary,
+[data-theme="nature"] .bg-cream .text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+.bg-cream .text-accent,
+section.bg-cream .text-accent,
+[data-theme="nature"] .bg-cream .text-accent {
+    color: var(--accent-color) !important;
+}
+
+.bg-cream .text-accent-dark,
+section.bg-cream .text-accent-dark,
+[data-theme="nature"] .bg-cream .text-accent-dark {
+    color: var(--accent-dark) !important;
+}
+
+/* Preserve white text for buttons within cream sections */
+.bg-cream .bg-primary,
+.bg-cream .bg-secondary,
+.bg-cream .bg-accent,
+.bg-cream .bg-accent-dark,
+section.bg-cream .bg-primary,
+section.bg-cream .bg-secondary,
+section.bg-cream .bg-accent,
+section.bg-cream .bg-accent-dark,
+[data-theme="nature"] .bg-cream .bg-primary,
+[data-theme="nature"] .bg-cream .bg-secondary,
+[data-theme="nature"] .bg-cream .bg-accent,
+[data-theme="nature"] .bg-cream .bg-accent-dark {
+    color: #ffffff !important;
+}
+
+.bg-cream .bg-primary *,
+.bg-cream .bg-secondary *,
+.bg-cream .bg-accent *,
+.bg-cream .bg-accent-dark *,
+section.bg-cream .bg-primary *,
+section.bg-cream .bg-secondary *,
+section.bg-cream .bg-accent *,
+section.bg-cream .bg-accent-dark *,
+[data-theme="nature"] .bg-cream .bg-primary *,
+[data-theme="nature"] .bg-cream .bg-secondary *,
+[data-theme="nature"] .bg-cream .bg-accent *,
+[data-theme="nature"] .bg-cream .bg-accent-dark * {
+    color: #ffffff !important;
+}
+
+/* Mobile Responsiveness Improvements */
+/* Improve mobile menu display */
+.mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--accent-dark);
+    z-index: 50;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive text adjustments */
+@media (max-width: 640px) {
+
+    h1,
+    .text-4xl {
+        font-size: 1.875rem !important;
+        /* 30px */
+        line-height: 2.25rem !important;
+        /* 36px */
+    }
+
+    h2,
+    .text-3xl {
+        font-size: 1.5rem !important;
+        /* 24px */
+        line-height: 2rem !important;
+        /* 32px */
+    }
+
+    p.text-xl {
+        font-size: 1.125rem !important;
+        /* 18px */
+        line-height: 1.75rem !important;
+        /* 28px */
+    }
+}
+
+/* Fix grid layouts for mobile */
+@media (max-width: 768px) {
+    .grid.grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Fix footer grids */
+    footer .grid.grid-cols-3 {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2rem 1rem !important;
+    }
+
+    footer .grid.grid-cols-3>div:last-child {
+        grid-column: span 2 !important;
+    }
+}
+
+/* Responsive padding adjustments */
+@media (max-width: 640px) {
+
+    .py-16,
+    .py-12 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .px-8,
+    .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Adjust spacing between sections */
+    section+section {
+        margin-top: 0 !important;
+    }
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure buttons stack nicely on mobile */
+@media (max-width: 640px) {
+    .flex.flex-wrap.gap-4 {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .flex.flex-wrap.gap-4>a {
+        width: 100%;
+        margin-bottom: 0.75rem;
+        text-align: center;
+    }
+}
+
+/* Fix card layouts on mobile */
+@media (max-width: 768px) {
+
+    .card,
+    div[class*="shadow"] {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Ensure form elements are mobile-friendly */
+@media (max-width: 640px) {
+
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+        /* Prevents iOS zoom on focus */
+    }
+}
+
+/* Ensure mobile menu items are easily tappable */
+.mobile-menu a {
+    padding: 0.75rem 1rem !important;
+    display: block;
+    width: 100%;
+}
+
+/* Add a bit more spacing to the mobile toggle button */
+.mobile-menu-button {
+    padding: 0.5rem !important;
+}
+
+/* Fix container width on small screens */
+@media (max-width: 640px) {
+    [class*="max-w-"] {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Fix padding in mobile navigation */
+@media (max-width: 768px) {
+    nav.max-w-7xl {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+}
+
+/* Fix service cards display on mobile */
+@media (max-width: 768px) {
+    .mt-24 {
+        margin-top: 3rem !important;
+    }
 }

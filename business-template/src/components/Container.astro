@@ -1,24 +1,32 @@
 ---
 interface Props {
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  size?: "sm" | "md" | "lg" | "xl" | "full";
   class?: string;
 }
 
-const { 
-  size = 'lg', 
-  class: className = '' 
-} = Astro.props;
+const { size = "lg", class: className = "" } = Astro.props;
 
-let widthClass = '';
-if (size === 'sm') widthClass = 'max-w-3xl';
-if (size === 'md') widthClass = 'max-w-5xl';
-if (size === 'lg') widthClass = 'max-w-7xl';
-if (size === 'xl') widthClass = 'max-w-screen-2xl';
-if (size === 'full') widthClass = 'w-full';
+let widthClass = "";
+if (size === "sm") widthClass = "max-w-3xl";
+if (size === "md") widthClass = "max-w-5xl";
+if (size === "lg") widthClass = "max-w-7xl";
+if (size === "xl") widthClass = "max-w-screen-2xl";
+if (size === "full") widthClass = "w-full";
 
 const classes = `mx-auto px-4 sm:px-6 lg:px-8 ${widthClass} ${className}`;
 ---
 
 <div class={classes}>
   <slot />
-</div> 
+</div>
+
+<style>
+  /* Responsive padding adjustments */
+  @media (max-width: 640px) {
+    div {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+</style>
+

@@ -1,7 +1,7 @@
 // Home page content
 export const homeContent = {
     hero: {
-        title: "Web Solutions for Christchurch Businesses",
+        title: "Web Solutions for Kiwi Businesses",
         subtitle: "Custom websites, e-commerce platforms, and mobile apps tailored for small businesses in New Zealand",
         cta: {
             primary: {
@@ -21,7 +21,7 @@ export const homeContent = {
         items: [
             {
                 title: "Local Support",
-                description: "Dedicated support from a team based in Christchurch – we're just a call or short drive away.",
+                description: "Dedicated support from a team based in Christchurch – we're just a short call away.",
                 icon: "support"
             },
             {
@@ -42,13 +42,13 @@ export const homeContent = {
         ]
     },
     about: {
-        title: "Local Web Experts",
-        subtitle: "How we help Christchurch businesses succeed online",
-        content: "At MoaWeb NZ, we understand the unique challenges faced by small businesses in New Zealand. Our team combines local market knowledge with cutting-edge web development expertise to create digital solutions that truly work for Kiwi businesses. Whether you need a simple website with a contact form or a full-featured e-commerce platform, we deliver professional, reliable, and affordable web services.",
+        title: "Your Local Web Experts",
+        subtitle: "How we help New Zealand businesses succeed online",
+        content: "At MoaWeb NZ, we understand the unique challenges faced by small businesses in Aotearoa. Our team combines local market knowledge with cutting-edge web development expertise to create digital solutions that truly work for Kiwi businesses. Whether you need a simple website with a contact form or a full-featured e-commerce platform, we deliver professional, reliable, and affordable web services.",
         image: "/images/christchurch1.jpg",
         stats: [
             {
-                value: "100+",
+                value: "10+",
                 label: "Local Clients"
             },
             {
@@ -104,7 +104,7 @@ export const aboutContent = {
     },
     story: {
         title: "Our Story",
-        content: "Founded in Christchurch with a passion for helping local businesses thrive online, MoaWeb NZ has grown into a trusted web development partner for small businesses across Canterbury. We believe that every business, regardless of size, deserves a professional online presence that truly represents their brand and helps them achieve their goals. Our team combines technical expertise with local market knowledge to deliver web solutions that work for New Zealand businesses.",
+        content: "Founded in Christchurch with a passion for helping local businesses thrive online, MoaWeb NZ has grown into a trusted web development partner for small businesses across Aotearoa. We believe that every business, regardless of size, deserves a professional online presence that truly represents their brand and helps them achieve their goals. Our team combines technical expertise with local market knowledge to deliver web solutions that work for New Zealand businesses.",
         image: "/images/christchurch2.jpg"
     },
     mission: {
@@ -188,7 +188,7 @@ export const servicesContent = {
                 "Local support"
             ],
             pricing: {
-                setup: "$649",
+                setup: "$639",
                 monthly: "$59 monthly"
             },
             image: "https://placehold.co/800x600?text=Business+Website"
@@ -211,7 +211,7 @@ export const servicesContent = {
                 "Search engine optimisation"
             ],
             pricing: {
-                setup: "$1,299",
+                setup: "$1,269",
                 monthly: "$129 monthly"
             },
             image: "https://placehold.co/800x600?text=E-Commerce+Website"
@@ -235,8 +235,8 @@ export const servicesContent = {
                 "Regular updates and improvements"
             ],
             pricing: {
-                setup: "From $5,799",
-                monthly: "$370 monthly"
+                setup: "From $5,699",
+                monthly: "$299 monthly"
             },
             image: "https://placehold.co/800x600?text=Custom+Applications"
         }
@@ -273,7 +273,7 @@ export const servicesContent = {
         questions: [
             {
                 question: "How long does it take to build a website?",
-                answer: "A standard business website typically takes 2-3 weeks to complete, while e-commerce sites and custom applications may take 4-8 weeks depending on complexity."
+                answer: "A standard business website typically take 1-2 weeks to complete, while e-commerce sites may take 2-4 weeks and custom applications may take 3-8 weeks depending on complexity."
             },
             {
                 question: "Do I own my website?",
@@ -329,11 +329,6 @@ export const contactContent = {
                 label: "Phone",
                 value: "03 555 1234",
                 icon: "phone"
-            },
-            {
-                label: "Address",
-                value: "123 Cathedral Square, Christchurch 8011, New Zealand",
-                icon: "location"
             }
         ]
     }
