@@ -91,18 +91,59 @@ import Button from "../components/Button.astro";
 						<div
 							class={`hidden lg:block ${index % 2 === 1 ? "lg:order-1" : ""}`}
 						>
-							<img
-								id={`service-image-${index}`}
-								src={
-									index === 0
-										? "/images/website1.jpg"
-										: index === 1
-											? "/images/ecom1.jpg"
-											: "/images/app1.jpg"
-								}
-								alt={service.title}
-								class="rounded-lg shadow-lg w-full max-w-full transition-opacity duration-500"
-							/>
+							<div class="relative">
+								{index === 2 ? (
+									<div id={`image-wrapper-${index}`} class="relative">
+										<a
+											href="https://hamonke.github.io/NoteTree"
+											target="_blank"
+											class="block"
+											id={`app-link-${index}`}
+										>
+											<img
+												id={`service-image-${index}`}
+												src="/images/app3.PNG"
+												alt={service.title}
+												class="rounded-lg shadow-lg w-full max-w-full transition-opacity duration-500 cursor-pointer"
+											/>
+											<div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/30 rounded-lg">
+												<span class="text-white font-medium px-4 py-2 bg-primary/80 rounded">Visit NoteTree App</span>
+											</div>
+										</a>
+									</div>
+								) : (
+									<img
+										id={`service-image-${index}`}
+										src={
+											index === 0
+												? "/images/website1.jpg"
+												: "/images/ecom1.jpg"
+										}
+										alt={service.title}
+										class="rounded-lg shadow-lg w-full max-w-full transition-opacity duration-500"
+									/>
+								)}
+								<!-- Left Navigation Button -->
+								<button
+									id={`prev-button-${index}`}
+									class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary p-2 rounded-full shadow-md transition-all focus:outline-none"
+									aria-label="Previous image"
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+									</svg>
+								</button>
+								<!-- Right Navigation Button -->
+								<button
+									id={`next-button-${index}`}
+									class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-primary p-2 rounded-full shadow-md transition-all focus:outline-none"
+									aria-label="Next image"
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+									</svg>
+								</button>
+							</div>
 						</div>
 					</div>
 				))
@@ -254,7 +295,7 @@ import Button from "../components/Button.astro";
 </Layout>
 
 <script>
-	// Image cycling functionality
+	// Manual image navigation functionality
 	document.addEventListener("DOMContentLoaded", () => {
 		// Setup image sources for each service
 		const imageSets = [
@@ -264,38 +305,81 @@ import Button from "../components/Button.astro";
 				"/images/website3.jpg",
 			], // Professional Business Website
 			["/images/ecom1.jpg", "/images/ecom2.jpg", "/images/ecom3.jpg"], // Ecommerce Website
-			["/images/app1.jpg", "/images/app2.jpg"], // Custom Web & Mobile Applications
+			["/images/app3.PNG", "/images/app1.jpg", "/images/app2.jpg"], // Custom Web & Mobile Applications - Start with app3.PNG
 		];
 
 		// Current image index for each service
 		const currentIndices = [0, 0, 0];
 
-		// Set interval for each image
-		for (let i = 0; i < imageSets.length; i++) {
-			setInterval(
-				() => {
-					const imageElement = document.getElementById(
-						`service-image-${i}`,
-					) as HTMLImageElement;
-					if (imageElement) {
-						// Fade out
-						imageElement.style.opacity = "0";
+		// Function to change image
+		const changeImage = (serviceIndex: number, direction: 'prev' | 'next') => {
+			const imageElement = document.getElementById(
+				`service-image-${serviceIndex}`,
+			) as HTMLImageElement;
+			
+			if (imageElement) {
+				// Fade out
+				imageElement.style.opacity = "0";
 
-						// Wait for fade out to complete, then change image and fade back in
-						setTimeout(() => {
-							currentIndices[i] =
-								(currentIndices[i] + 1) % imageSets[i].length;
-							imageElement.src = imageSets[i][currentIndices[i]];
-
-							// Small delay to ensure the new image is loaded
-							setTimeout(() => {
-								imageElement.style.opacity = "1";
-							}, 50);
-						}, 500); // Match to the CSS transition duration
+				// Wait for fade out to complete, then change image and fade back in
+				setTimeout(() => {
+					// Calculate new index based on direction
+					if (direction === 'next') {
+						currentIndices[serviceIndex] = 
+							(currentIndices[serviceIndex] + 1) % imageSets[serviceIndex].length;
+					} else {
+						currentIndices[serviceIndex] = 
+							(currentIndices[serviceIndex] - 1 + imageSets[serviceIndex].length) % 
+							imageSets[serviceIndex].length;
 					}
-				},
-				5000 + i * 500,
-			); // Longer interval to account for fade duration
+					
+					const newSrc = imageSets[serviceIndex][currentIndices[serviceIndex]];
+					imageElement.src = newSrc;
+					
+					// Update link and overlay visibility for app images
+					if (serviceIndex === 2) {
+						const wrapper = document.getElementById(`image-wrapper-${serviceIndex}`);
+						const link = document.getElementById(`app-link-${serviceIndex}`);
+						
+						if (wrapper && link) {
+							if (newSrc.includes('app3.PNG')) {
+								// For app3.PNG, enable link and show overlay on hover
+								link.style.pointerEvents = 'auto';
+								imageElement.classList.add('cursor-pointer');
+								wrapper.querySelector('div')?.classList.remove('hidden');
+							} else {
+								// For other images, disable link and hide overlay
+								link.style.pointerEvents = 'none';
+								imageElement.classList.remove('cursor-pointer');
+								wrapper.querySelector('div')?.classList.add('hidden');
+							}
+						}
+					}
+
+					// Small delay to ensure the new image is loaded
+					setTimeout(() => {
+						imageElement.style.opacity = "1";
+					}, 50);
+				}, 500); // Match to the CSS transition duration
+			}
+		};
+
+		// Set up event listeners for navigation buttons
+		for (let i = 0; i < imageSets.length; i++) {
+			const prevButton = document.getElementById(`prev-button-${i}`);
+			const nextButton = document.getElementById(`next-button-${i}`);
+
+			if (prevButton) {
+				prevButton.addEventListener("click", () => {
+					changeImage(i, 'prev');
+				});
+			}
+
+			if (nextButton) {
+				nextButton.addEventListener("click", () => {
+					changeImage(i, 'next');
+				});
+			}
 		}
 	});
 </script>
